@@ -2,26 +2,23 @@ $(window).load(function() {
   loadScript();
 });
 
-
 var map;
 var styleArray = [{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"color":"#f7f1df"}]},{"featureType":"landscape.natural","elementType":"geometry","stylers":[{"color":"#d0e3b4"}]},{"featureType":"landscape.natural.terrain","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.medical","elementType":"geometry","stylers":[{"color":"#fbd3da"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#bde6ab"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffe15f"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#efd151"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"black"}]},{"featureType":"transit.station.airport","elementType":"geometry.fill","stylers":[{"color":"#cfb2db"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#a2daf2"}]}]
 
 function initialize() {
-
   var mapOptions = {
           center: new google.maps.LatLng(32.715403, -117.158048),
           zoom: 14,
-          mapTypeId: google.maps.MapTypeId.NORMAL,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
           panControl: true,
           scaleControl: false,
           streetViewControl: true,
           overviewMapControl: true,
           styles: styleArray
         };
-  // initializing map
-  map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
 
- // Try HTML5 geolocation.
+  map = new google.maps.Map(document.getElementById("map"),mapOptions);
+
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       var pos = {
@@ -34,85 +31,22 @@ function initialize() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
   } else {
-    // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
   }
 
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
-}
-
-   // geocoding
-      var geocoding  = new google.maps.Geocoder();
-      $("#submit_button_geocoding").click(function(){
-        codeAddress(geocoding);
-      });
-      $("#submit_button_reverse").click(function(){
-        codeLatLng(geocoding);
-      });
-
-
-}
-
-
-
-var info;
-function codeLatLng(geocoding){
-
-  var input = $('#search_box_reverse').val();
-  console.log(input);
-
-  var latlngbounds = new google.maps.LatLngBounds();
-  var listener;
-  var regex = /-?([0-9])*\.([0-9])*\, *-?([0-9])*\.([0-9])*/g;
-  if(regex.test(input)) {
-  var latLngStr = input.split(",",2);
-  var lat = parseFloat(latLngStr[0]);
-  var lng = parseFloat(latLngStr[1]);
-  var latLng = new google.maps.LatLng(lat, lng);
-  geocoding.geocode({'latLng': latLng}, function(results, status) {
-     if (status == google.maps.GeocoderStatus.OK){
-       if(results.length > 0){
-         map.setZoom(16);
-         var marker;
-         map.setCenter(results[1].geometry.location);
-         createCustomMarker(results[0].geometry.location,map)
-         var i;
-        info = createInfoWindow("");
-         for(i in results){
-           latlngbounds.extend(results[i].geometry.location);
-             marker = new google.maps.Marker({
-             map: map,
-             position: results[i].geometry.location
-           });
-
-          google.maps.event.addListener(marker, 'click', (function(marker,i) {
-            return function() {
-            info.setContent(results[i].formatted_address);
-            info.open(map,marker);
-            }
-          })(marker,i));
-        }
-
-         map.fitBounds(latlngbounds);
-         listener = google.maps.event.addListener(map, "idle", function() {
-          if (map.getZoom() > 16) map.setZoom(16);
-            google.maps.event.removeListener(listener);
-          });
-       }
-     }
-    else{
-       alert("Geocoder failed due to: " + status);
-     }
-  });
-  }else{
-    alert("Wrong lat,lng format!");
+  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation ?
+                          'Error: The Geolocation service failed.' :
+                          'Error: Your browser doesn\'t support geolocation.');
   }
+
+  var geocoding  = new google.maps.Geocoder();
+  $("#submit_button_geocoding").click(function(){
+    codeAddress(geocoding);
+  });
 }
+
 function codeAddress(geocoding){
   var address = $("#search_box_geocoding").val();
   if(address.length > 0){
@@ -120,10 +54,6 @@ function codeAddress(geocoding){
       if(status == google.maps.GeocoderStatus.OK){
         map.setZoom(16);
         map.setCenter(results[0].geometry.location);
-        // var marker  =  new google.maps.Marker({
-        //   map: map,
-        //   position: results[0].geometry.location
-        // });
         createCustomMarker(results[0].geometry.location,map)
         }else{
         alert("Geocode was not successful for the following reason: " + status);
@@ -137,11 +67,8 @@ function codeAddress(geocoding){
 function createImage(url){
   var image = {
     url: url,
-    // This marker is 32 pixels wide by 32 pixels tall.
     size: new google.maps.Size(26, 47),
-    // The origin for this image is 0,0.
     origin: new google.maps.Point(0,0),
-    // The anchor for this image is the base of the flagpole at 0,32.
     anchor: new google.maps.Point(32, 47)
   };
   return image;
@@ -156,14 +83,13 @@ function createCustomMarker(coords,map){
 }
 
 function loadScript() {
-  console.log("map loading ...");
   var script = document.createElement('script');
   script.type = 'text/javascript';
-  var url = 'https://maps.googleapis.com/maps/api/js?key=' + '<%= ENV['GOOGLE_KEY'] %>' +
+  var url =
+    'https://maps.googleapis.com/maps/api/js?key='+
+    '<%= ENV['GOOGLE_KEY'] %>'+
     '&libraries=drawing'+
     '&callback=initialize';
-  console.log(url);
   script.src = url;
   document.body.appendChild(script);
 }
-

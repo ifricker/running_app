@@ -1,0 +1,8 @@
+<div id="search_options">
+  <%= link_to "Enter Address", geocoding_path, remote: true, id: "geocoding"%>
+</div>
+
+<div id="geocoding_fields">
+  <%= text_field_tag :search, params[:search], placeholder: "Enter an address", :id => 'search_box_geocoding', class: 'search_box' %>
+  <%= button_tag "Search", id: "submit_button_geocoding", data: { disable_with: "Please wait..." }, class: "submit_button" %>
+</div>
