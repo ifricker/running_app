@@ -1,8 +1,17 @@
-<h1>Welcome</h1>
+<h1>xRoute</h1>
 
-<% if user_signed_in? %>
-  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to "Login", new_user_session_path %>
-  <%= link_to "Sign Up", new_user_registration_path %>
-<% end %>
+<div id="search_options">
+  <%= link_to "Enter Address", geocoding_path, remote: true, id: "geocoding"%>
+  <%= link_to "Enter Coordinates", reverse_geocoding_path, remote: true, id: "reverse_geocoding"%>
+</div>
+<div id="map-container">
+  <div id="map-canvas"></div>
+
+  <div id="geocoding_fields">
+    <%= text_field_tag :search, params[:search], placeholder: "Enter a address", :id => 'search_box_geocoding', class: 'search_box' %>
+    <%= button_tag "Search", id: "submit_button_geocoding", data: { disable_with: "Please wait..." }, class: "submit_button" %>
+  </div>
+  <div id="reverse_geocoding_fields">
+    <%= text_field_tag :search, params[:search], placeholder: "Latitude, Longitude", :id => 'search_box_reverse', class: 'search_box' %>
+    <%= button_tag "Search", id: "submit_button_reverse", data: { disable_with: "Please wait..." }, class: "submit_button" %>
+  </div>

@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     root to: "welcome#index"
   end
 
+  get "/geocoding", to: "welcome#geocoding", as: "geocoding"
+  get "/reverse_geocoding", to: "welcome#reverse_geocoding", as: "reverse_geocoding"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
