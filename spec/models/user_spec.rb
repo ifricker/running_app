@@ -1,9 +1,8 @@
-class UserTest < ActiveSupport::TestCase
-
 require 'rails_helper'
 
-describe User do
-let(:user) { User.new(first_name: 'Jane', last_name: 'Doe', username: 'janedoe', email: 'jane@doe.come', password: '123456') }
+RSpec.describe User, type: :model do
+let(:user) { User.new(first_name: 'Jane', last_name: 'Doe', username: 'janedoe', email: 'jane@doe.com', password: '123456') }
+
 
   it 'has a first name' do
     expect(user.first_name).to eq('Jane')
@@ -24,5 +23,7 @@ let(:user) { User.new(first_name: 'Jane', last_name: 'Doe', username: 'janedoe',
   it 'has a password' do
     expect(user.password).to eq('123456')
   end
+
+
 end
-end
+
