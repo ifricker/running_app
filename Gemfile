@@ -15,7 +15,6 @@ gem 'uglifier', '>= 1.3.0'
 
 
 group :development, :test do
-  gem 'byebug'
   gem 'capybara'
   gem 'faker'
   gem 'rspec-rails', '~> 3.0'
@@ -27,5 +26,7 @@ group :test do
 end
 
 group :development do
+  gem 'byebug'
   gem 'web-console', '~> 2.0'
+
 end
