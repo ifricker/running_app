@@ -10,6 +10,6 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe User::RoutesHelper, type: :helper do
+RSpec.describe RoutesHelper, type: :helper do
   pending "add some examples to (or delete) #{__FILE__}"
 end
