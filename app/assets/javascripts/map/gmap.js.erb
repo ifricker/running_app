@@ -25,6 +25,9 @@ function initialize() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
+
+      $.post("/location?location[lat]="+pos.lat + "&location[lng]="+pos.lng)
+
       createCustomMarker(pos,map)
       map.setCenter(pos);
     }, function() {
