@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160423014638) do
   create_table "waypoints", force: :cascade do |t|
     t.decimal "latitude"
     t.decimal "longitude"
+    t.integer "route_id"
   end
 
   add_foreign_key "routes", "users"
