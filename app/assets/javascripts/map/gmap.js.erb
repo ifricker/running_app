@@ -36,6 +36,8 @@ function initMap() {
 
       $('#submit').on('click', function(event) {
         event.preventDefault();
+        start = []
+        waypts = []
         $.post("/anon_routes?waypoint[lat]="+pos.lat + "&waypoint[lng]="+pos.lng).done(function(data){
           start.push({location: (String(data[0].latitude) + ", " + String(data[0].longitude))});
           waypts.push({location: (String(data[1].latitude) + ", " + String(data[1].longitude)), stopover: true});
