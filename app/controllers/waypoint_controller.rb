@@ -1,4 +1,4 @@
-class LocationController < ApplicationController
+class WaypointController < ApplicationController
 
   def create
     lat = params[:location][:lat]
