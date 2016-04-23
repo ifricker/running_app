@@ -1,6 +1,13 @@
 $(window).load(function() {
   loadScript();
 });
+var start = [];
+var waypts = [];
+function route(start, waypoints, distance){
+  this.start = start;
+  this.waypoints = waypoints;
+  this.distance = distance;
+}
 
 var styleArray = [{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"color":"#f7f1df"}]},{"featureType":"landscape.natural","elementType":"geometry","stylers":[{"color":"#d0e3b4"}]},{"featureType":"landscape.natural.terrain","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.medical","elementType":"geometry","stylers":[{"color":"#fbd3da"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#bde6ab"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffe15f"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#efd151"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"black"}]},{"featureType":"transit.station.airport","elementType":"geometry.fill","stylers":[{"color":"#cfb2db"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#a2daf2"}]}]
 
@@ -29,8 +36,13 @@ function initMap() {
 
       $('#submit').on('click', function(event) {
         event.preventDefault();
-        $.post("/anon_routes?waypoint[lat]="+pos.lat + "&waypoint[lng]="+pos.lng)
-        // calculateAndDisplayRoute(directionsService, directionsDisplay);
+        $.post("/anon_routes?waypoint[lat]="+pos.lat + "&waypoint[lng]="+pos.lng).done(function(data){
+          start.push({location: (String(data[0].latitude) + ", " + String(data[0].longitude))});
+          waypts.push({location: (String(data[1].latitude) + ", " + String(data[1].longitude)), stopover: true});
+          waypts.push({location: (String(data[2].latitude) + ", " + String(data[2].longitude)), stopover: true});
+          waypts.push({location: (String(data[3].latitude) + ", " + String(data[3].longitude)), stopover: true});
+          calculateAndDisplayRoute(directionsService, directionsDisplay, waypts);
+        })
       });
 
       marker.setPosition(pos);
@@ -64,21 +76,22 @@ function loadScript() {
   document.body.appendChild(script);
 }
 
-function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-  var waypts = [];
-  var checkboxArray = document.getElementById('waypoints');
-  for (var i = 0; i < checkboxArray.length; i++) {
-    if (checkboxArray.options[i].selected) {
-      waypts.push({
-        location: checkboxArray[i].value,
-        stopover: true
-      });
-    }
-  }
+function calculateAndDisplayRoute(directionsService, directionsDisplay, waypts) {
+  // var waypts = [];
+  // var checkboxArray = document.getElementById('waypoints');
+  // for (var i = 0; i < checkboxArray.length; i++) {
+  //   if (checkboxArray.options[i].selected) {
+      // waypts.push({
+      //   location: checkboxArray[i].value,
+      //   stopover: true
+      // });
+  //   }
+  // }
+
 
   directionsService.route({
-    origin: document.getElementById('start').value,
-    destination: document.getElementById('end').value,
+    origin: start[0].location,
+    destination: start[0].location,
     waypoints: waypts,
     optimizeWaypoints: true,
     travelMode: google.maps.TravelMode.WALKING
