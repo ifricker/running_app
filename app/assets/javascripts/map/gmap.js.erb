@@ -3,6 +3,7 @@ $(window).load(function() {
 });
 var start = [];
 var waypts = [];
+var total = 0;
 function route(start, waypoints, distance){
   this.start = start;
   this.waypoints = waypoints;
@@ -36,8 +37,9 @@ function initMap() {
 
       $('#submit').on('click', function(event) {
         event.preventDefault();
-        start = []
-        waypts = []
+        start = [];
+        waypts = [];
+        total = 0;
         $.post("/anon_routes?waypoint[lat]="+pos.lat + "&waypoint[lng]="+pos.lng).done(function(data){
           start.push({location: (String(data[0].latitude) + ", " + String(data[0].longitude))});
           waypts.push({location: (String(data[1].latitude) + ", " + String(data[1].longitude)), stopover: true});
@@ -110,8 +112,11 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, waypts) 
             '</b><br>';
         summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
         summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
-        summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+        summaryPanel.innerHTML += route.legs[i].distance.text + '<br>';
+        total += route.legs[i].distance.value
+        summaryPanel.innerHTML += "Total: " + ((total * 0.000621371192).toFixed(2)) + "mi<br><br>"
       }
+
     } else {
       window.alert('Directions request failed due to ' + status);
     }
