@@ -1,8 +1,4 @@
-html, body{
-  height: 100%;
-}
-
-#map {
+/*#map {
    height: 500px;
    width: 100%;
  }
@@ -35,6 +31,7 @@ html, body {
   width: 70%;
   height: 100%;
 }
+
 #right-panel {
   margin: 20px;
   border-width: 2px;
@@ -48,3 +45,4 @@ html, body {
   background-color: #FFEE77;
   padding: 10px;
 }
+*/
