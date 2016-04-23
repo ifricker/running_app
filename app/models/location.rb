@@ -1,4 +1,4 @@
-class Location < ActiveRecord::Base
+class Waypoint < ActiveRecord::Base
 	belongs_to :route
-                  
+
 end
