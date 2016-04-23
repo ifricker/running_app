@@ -7,19 +7,19 @@ class Route < ActiveRecord::Base
                     :lat_column_name => :latitude,
                     :lng_column_name => :longitude
 
-  def go_north( distance)
-    self.endpoint(0 , distance)
+  def go_north(distance)
+    self.waypoints.last.endpoint(0 , distance)
   end
 
-  def go_south( distance)
-    self.endpoint(180 , distance)
+  def go_south(distance)
+    self.waypoints.last.endpoint(180 , distance)
   end
 
-  def go_east( distance)
-    self.endpoint(90 , distance)
+  def go_east(distance)
+    self.waypoints.last.endpoint(90 , distance)
   end
 
-  def go_west( distance)
-    self.endpoint(-90 , distance)
-  end  
+  def go_west(distance)
+    self.waypoints.last.endpoint(-90 , distance)
+  end
 end
