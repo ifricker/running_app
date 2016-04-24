@@ -104,7 +104,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, waypts) 
       directionsDisplay.setDirections(response);
       var route = response.routes[0];
       var summaryPanel = document.getElementById('directions-panel');
-      summaryPanel.innerHTML = '';
+      summaryPanel.innerHTML = '<b>' + String(route.summary) + '</b><br>' + String(route.warnings) + '<br><br>';
       // For each route, display summary information.
       for (var i = 0; i < route.legs.length; i++) {
         var routeSegment = i + 1;
@@ -114,6 +114,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, waypts) 
         summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
         summaryPanel.innerHTML += route.legs[i].distance.text + '<br>';
         total += route.legs[i].distance.value
+        console.log(route)
         summaryPanel.innerHTML += "Total: " + ((total * 0.000621371192).toFixed(2)) + "mi<br><br>"
       }
 
