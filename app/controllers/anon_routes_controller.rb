@@ -15,7 +15,12 @@ class AnonRoutesController < ApplicationController
     start.save
     new_route.start_id = start.id
     new_route.save
-    distance = 0.166 * params[:input_miles].to_f
+    if params[:units] == "km"
+        input_miles = km_to_miles(params[:input_miles].to_f)
+    else
+        input_miles = params[:input_miles].to_f
+    end
+    distance = 0.166 * input_miles
     wp1 = new_route.make_route(start_direction, distance)
     if turn_direction == 1
         wp2 = new_route.make_route(start_direction - 90, distance)
@@ -36,8 +41,12 @@ class AnonRoutesController < ApplicationController
 
   # private
 
-  # def route_params
-  #     params.permit(:waypoint, :input_miles, :units)
-  # end
+  def miles_to_km(miles)
+    miles * 1.60934
+  end
+
+  def km_to_miles(kms)
+    kms * 0.621371
+  end
 
 end
