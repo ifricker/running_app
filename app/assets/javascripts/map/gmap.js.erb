@@ -4,7 +4,6 @@ $(window).load(function() {
 var start = [];
 var waypts = [];
 var total = 0;
-var totaltest = '';
 function route(start, waypoints, distance){
   this.start = start;
   this.waypoints = waypoints;
@@ -101,11 +100,11 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, waypts) 
             '</b><br>';
         summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
         summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+        for (var j = 0; j < route.legs[i].steps.length; j++) {
+          summaryPanel.innerHTML += route.legs[i].steps[j].instructions + '<br>';
+        };
         summaryPanel.innerHTML += route.legs[i].distance.text + '<br>';
         total += route.legs[i].distance.value
-        if (i === 3){
-        totaltest = String((total * 0.000621371192).toFixed(2))
-        }
         summaryPanel.innerHTML += "Total: " + ((total * 0.000621371192).toFixed(2)) + "mi<br><br>"
       }
 
