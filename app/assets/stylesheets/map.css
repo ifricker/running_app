@@ -20,11 +20,13 @@
 #right-panel i {
   font-size: 12px;
 }
+
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
+
 #map {
   height: 100%;
   float: left;
@@ -40,6 +42,7 @@ html, body {
   text-align: left;
   padding-top: 20px;
 }
+
 #directions-panel {
   margin-top: 20px;
   background-color: #FFEE77;
