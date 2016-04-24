@@ -23,7 +23,7 @@ class Route < ActiveRecord::Base
     self.waypoints.last.endpoint(-90 , distance)
   end
 
-  def go_five_k(direction)
-    self.waypoints.last.endpoint(direction, 0.5)
+  def make_route(direction, distance)
+    self.waypoints.last.endpoint(direction, distance)
   end
 end

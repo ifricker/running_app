@@ -1,0 +1,7 @@
+<form action="/anon_routes" method="post" id="distance_form">
+<input type="text" name="input_miles" value="3.1"></input>
+<input type="radio" name="units" value="miles" checked>miles</input>
+<input type="radio" name="units" value="km">km</input>
+<%= render "location_form" %>
+<input type="submit" id="loopify">
+</form>
