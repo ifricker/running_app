@@ -4,11 +4,13 @@ class AnonRoutesController < ApplicationController
   def create
     lat = params[:waypoint][:lat]
     lng = params[:waypoint][:lng]
-    puts "_________________" * 5
-    puts params
-    puts "_________________" * 5
     new_route = Route.new()
-    start = Waypoint.create(latitude: lat, longitude: lng)
+    if params[:start_location].empty?
+      start = Waypoint.create(latitude: lat, longitude: lng)
+    else
+      location = Geokit::Geocoders::GoogleGeocoder.geocode(params[:start_location])
+      start = Waypoint.create(latitude: location.lat, longitude: location.lng)
+    end
     start.route = new_route
     start_direction = rand(0...360)
     turn_direction = [1,2].sample
