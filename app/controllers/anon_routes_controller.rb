@@ -1,8 +1,12 @@
 class AnonRoutesController < ApplicationController
+  skip_before_action :verify_authenticity_token
 
   def create
     lat = params[:waypoint][:lat]
     lng = params[:waypoint][:lng]
+    puts "_________________" * 5
+    puts params
+    puts "_________________" * 5
     new_route = Route.new()
     start = Waypoint.create(latitude: lat, longitude: lng)
     start.route = new_route
@@ -11,28 +15,29 @@ class AnonRoutesController < ApplicationController
     start.save
     new_route.start_id = start.id
     new_route.save
-    wp1 = new_route.go_five_k(start_direction)
+    distance = 0.166 * params[:input_miles].to_f
+    wp1 = new_route.make_route(start_direction, distance)
     if turn_direction == 1
-        wp2 = new_route.go_five_k(start_direction - 90)
-        wp3 = new_route.go_five_k(start_direction - 180)
+        wp2 = new_route.make_route(start_direction - 90, distance)
+        wp3 = new_route.make_route(start_direction - 180, distance)
     else
-        wp2 = new_route.go_five_k(start_direction + 90)
-        wp3 = new_route.go_five_k(start_direction + 180)
+        wp2 = new_route.make_route(start_direction + 90, distance)
+        wp3 = new_route.make_route(start_direction + 180, distance)
     end
     new_route.waypoints << Waypoint.create(latitude: wp1.lat, longitude: wp1.lng)
     new_route.waypoints << Waypoint.create(latitude: wp2.lat, longitude: wp2.lng)
     new_route.waypoints << Waypoint.create(latitude: wp3.lat, longitude: wp3.lng)
 
-    # wp1 = new_route.go_north(0.77)
-    # new_route.waypoints << Waypoint.create(latitude: wp1.lat, longitude: wp1.lng)
-    # wp2 = new_route.go_east(0.77)
-    # new_route.waypoints << Waypoint.create(latitude: wp2.lat, longitude: wp2.lng)
-    # wp3 = new_route.go_south(0.77)
-    # new_route.waypoints << Waypoint.create(latitude: wp3.lat, longitude: wp3.lng)
-
     respond_to do |format|
       format.json { render :json => new_route.waypoints }
     end
   end
+
+
+  # private
+
+  # def route_params
+  #     params.permit(:waypoint, :input_miles, :units)
+  # end
 
 end
