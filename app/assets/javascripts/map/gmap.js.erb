@@ -4,6 +4,7 @@ $(window).load(function() {
 var start = [];
 var waypts = [];
 var total = 0;
+var totaltest = '';
 function route(start, waypoints, distance){
   this.start = start;
   this.waypoints = waypoints;
@@ -81,18 +82,6 @@ function loadScript() {
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay, waypts) {
-  // var waypts = [];
-  // var checkboxArray = document.getElementById('waypoints');
-  // for (var i = 0; i < checkboxArray.length; i++) {
-  //   if (checkboxArray.options[i].selected) {
-      // waypts.push({
-      //   location: checkboxArray[i].value,
-      //   stopover: true
-      // });
-  //   }
-  // }
-
-
   directionsService.route({
     origin: start[0].location,
     destination: start[0].location,
@@ -104,7 +93,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, waypts) 
       directionsDisplay.setDirections(response);
       var route = response.routes[0];
       var summaryPanel = document.getElementById('directions-panel');
-      summaryPanel.innerHTML = '<b>' + String(route.summary) + '</b><br>' + String(route.warnings) + '<br><br>';
+      summaryPanel.innerHTML = '<b>Starting location: </b><br>' + String(route.summary) + '<br><br>' + String(route.warnings) + '<br><br>';
       // For each route, display summary information.
       for (var i = 0; i < route.legs.length; i++) {
         var routeSegment = i + 1;
@@ -114,7 +103,9 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, waypts) 
         summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
         summaryPanel.innerHTML += route.legs[i].distance.text + '<br>';
         total += route.legs[i].distance.value
-        console.log(route)
+        if (i === 3){
+        totaltest = String((total * 0.000621371192).toFixed(2))
+        }
         summaryPanel.innerHTML += "Total: " + ((total * 0.000621371192).toFixed(2)) + "mi<br><br>"
       }
 
