@@ -18,12 +18,11 @@ ActiveRecord::Schema.define(version: 20160423014638) do
 
   create_table "routes", force: :cascade do |t|
     t.integer  "user_id"
-    t.float    "distance"
-    t.float    "starting_lat"
-    t.float    "starting_lng"
+    t.decimal  "distance"
+    t.integer  "start_id"
     t.string   "name"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
