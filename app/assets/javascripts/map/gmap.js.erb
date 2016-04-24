@@ -35,12 +35,13 @@ function initMap() {
       };
 
 
-      $('#loopify').on('click', function(event) {
+      $('#distance_form').on('submit', function(event) {
         event.preventDefault();
+        var data = $(this).serialize()
         start = [];
         waypts = [];
         total = 0;
-        $.post("/anon_routes?waypoint[lat]="+pos.lat + "&waypoint[lng]="+pos.lng).done(function(data){
+        $.post("/anon_routes?waypoint[lat]="+pos.lat + "&waypoint[lng]="+pos.lng + "&" + data).done(function(data){
           start.push({location: (String(data[0].latitude) + ", " + String(data[0].longitude))});
           waypts.push({location: (String(data[1].latitude) + ", " + String(data[1].longitude)), stopover: true});
           waypts.push({location: (String(data[2].latitude) + ", " + String(data[2].longitude)), stopover: true});
