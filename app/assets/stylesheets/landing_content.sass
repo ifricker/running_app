@@ -4,6 +4,34 @@ html, body
   padding: 0
   overflow: hidden
 
+$btn-color: white
+$btn-height: 70px
+$btn-font-size: ($btn-height / 2) + 5px
+$btn-line-height: ($btn-height / 2) - 5px
+$btn-padding-bottom: $btn-line-height / 2
+$btn-width: $btn-height * 3
+$btn-border-radius: $btn-height / 2
+$btn-border-width: $btn-border-radius / 10
+
+.btn.loopify
+  -webkit-border-radius: $btn-border-radius
+  -moz-border-radius: $btn-border-radius
+  border-radius: $btn-border-radius
+  background-color: transparent
+  border: solid
+  border-width: $btn-border-width
+  border-color: $btn-color
+  color: $btn-color
+  font-size: $btn-font-size
+  font-family: 'Pacifico', cursive
+  height: $btn-height
+  line-height: $btn-line-height
+  padding-bottom: $btn-padding-bottom
+  width: $btn-width
+
+  &:hover
+    background-color: transparentize($btn-color, 0.5)
+
 .section
   position: relative
   width: 100%
