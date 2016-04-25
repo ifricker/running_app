@@ -49,11 +49,13 @@ function initMap() {
           waypts.push({location: (String(data[1].latitude) + ", " + String(data[1].longitude)), stopover: true});
           waypts.push({location: (String(data[2].latitude) + ", " + String(data[2].longitude)), stopover: true});
           waypts.push({location: (String(data[3].latitude) + ", " + String(data[3].longitude)), stopover: true});
+          console.log(data);
           calculateAndDisplayRoute(directionsService, directionsDisplay, waypts);
         })
       });
       marker.setPosition(pos);
       map.setCenter(pos);
+
     }, function() {
         $('#distance_form').on('submit', function(event) {
         event.preventDefault();
@@ -99,7 +101,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 function loadScript() {
   var script = document.createElement('script');
   script.type = 'text/javascript';
-  script.src = "https://maps.googleapis.com/maps/api/js?key="+"<%= ENV['GOOGLE_KEY'] %>"+"&libraries=drawing&callback=initMap";
+  script.src = "https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_KEY'] %>&libraries=drawing&callback=initMap";
   document.body.appendChild(script);
 }
 
