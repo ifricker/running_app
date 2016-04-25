@@ -35,12 +35,13 @@ function initMap() {
       };
 
 
-      $('#loopify').on('click', function(event) {
+      $('#distance_form').on('submit', function(event) {
         event.preventDefault();
+        var data = $(this).serialize()
         start = [];
         waypts = [];
         total = 0;
-        $.post("/anon_routes?waypoint[lat]="+pos.lat + "&waypoint[lng]="+pos.lng).done(function(data){
+        $.post("/anon_routes?waypoint[lat]="+pos.lat + "&waypoint[lng]="+pos.lng + "&" + data).done(function(data){
           start.push({location: (String(data[0].latitude) + ", " + String(data[0].longitude))});
           waypts.push({location: (String(data[1].latitude) + ", " + String(data[1].longitude)), stopover: true});
           waypts.push({location: (String(data[2].latitude) + ", " + String(data[2].longitude)), stopover: true});
@@ -81,18 +82,6 @@ function loadScript() {
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay, waypts) {
-  // var waypts = [];
-  // var checkboxArray = document.getElementById('waypoints');
-  // for (var i = 0; i < checkboxArray.length; i++) {
-  //   if (checkboxArray.options[i].selected) {
-      // waypts.push({
-      //   location: checkboxArray[i].value,
-      //   stopover: true
-      // });
-  //   }
-  // }
-
-
   directionsService.route({
     origin: start[0].location,
     destination: start[0].location,
@@ -104,7 +93,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, waypts) 
       directionsDisplay.setDirections(response);
       var route = response.routes[0];
       var summaryPanel = document.getElementById('directions-panel');
-      summaryPanel.innerHTML = '';
+      summaryPanel.innerHTML = '<b>Starting location: </b><br>' + String(route.summary) + '<br><br>' + String(route.warnings) + '<br><br>';
       // For each route, display summary information.
       for (var i = 0; i < route.legs.length; i++) {
         var routeSegment = i + 1;
@@ -112,6 +101,9 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, waypts) 
             '</b><br>';
         summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
         summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+        for (var j = 0; j < route.legs[i].steps.length; j++) {
+          summaryPanel.innerHTML += route.legs[i].steps[j].instructions + '<br>';
+        };
         summaryPanel.innerHTML += route.legs[i].distance.text + '<br>';
         total += route.legs[i].distance.value
         summaryPanel.innerHTML += "Total: " + ((total * 0.000621371192).toFixed(2)) + "mi<br><br>"
