@@ -2,18 +2,18 @@ $(function(){
   $('.up').hide()
   $('.down').hide()
 
-  $('.button').on("mouseenter", function(){
-    $(".loopify").hide()
-    $("#loopify").show()
-  })
+  // $('.button').on("mouseenter", function(){
+  //   $(".loopify").hide()
+  //   $("#loopify").show()
+  // })
 
-  $('.button').on("mouseleave", function(){
-    $(".loopify").show()
-    $("#loopify").hide()
-  })
+  // $('.button').on("mouseleave", function(){
+  //   $(".loopify").show()
+  //   $("#loopify").hide()
+  // })
 
   var top = 0;
-  $('#loopify').on('click', function(){
+  $('.loopify').on('click', function(){
     top -= 100;
     $('.section').animate({'top': top +'%'});
     $('.up').fadeIn(2000);
