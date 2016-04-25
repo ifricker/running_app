@@ -2,10 +2,17 @@ class AnonRoutesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
-    lat = params[:waypoint][:lat]
-    lng = params[:waypoint][:lng]
+
+    if params[:waypoint]
+      lat = params[:waypoint][:lat]
+      lng = params[:waypoint][:lng]
+    end
     new_route = Route.new()
-    if params[:start_location].empty?
+
+    if (params[:start_location].empty? && !lat )
+      location = Geokit::Geocoders::GoogleGeocoder.geocode("Balboa Park, San Diego, CA")
+      start = Waypoint.create(latitude: location.lat, longitude: location.lng)
+    elsif params[:start_location].empty?
       start = Waypoint.create(latitude: lat, longitude: lng)
     else
       location = Geokit::Geocoders::GoogleGeocoder.geocode(params[:start_location])
@@ -41,7 +48,7 @@ class AnonRoutesController < ApplicationController
   end
 
 
-  # private
+  private
 
   def miles_to_km(miles)
     miles * 1.60934
