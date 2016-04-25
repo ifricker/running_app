@@ -1,7 +1,11 @@
 <div class="section" id="landing-content">
   <%= image_tag "logo.png", :id => "logo" %>
-  <h1>Tagline - Where your run starts and ends in the same place.</h1>
-  <h2>subheading - enter your desired running distance and we'll generate a route for you</h2>
+
+  <section class="landing-header">
+    <h1 id="tagline">Where your run starts and ends in the same place.</h1>
+    <h2 id="subheading">Enter your desired running distance and we'll generate a route for you.</h2>
+  </section>
+
 
   <%= render "distance_form" %>
 
