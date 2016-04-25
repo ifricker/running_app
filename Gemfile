@@ -31,6 +31,7 @@ group :test do
 end
 
 group :development do
+  gem 'better_errors'
   gem 'byebug', platforms: :mri
   gem 'web-console', '~> 2.0'
   gem 'nested_scaffold'
