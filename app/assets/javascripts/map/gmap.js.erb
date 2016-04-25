@@ -40,13 +40,15 @@ function initMap() {
         total = 0;
         $.post({
             url: "/anon_routes?waypoint[lat]="+pos.lat + "&waypoint[lng]="+pos.lng + "&" + data,
-            contentType: 'application/json; charset=utf-8'
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json'
             }).done(function(data){
+            route_id = data[0].route_id
+
           start.push({location: (String(data[0].latitude) + ", " + String(data[0].longitude))});
           waypts.push({location: (String(data[1].latitude) + ", " + String(data[1].longitude)), stopover: true});
           waypts.push({location: (String(data[2].latitude) + ", " + String(data[2].longitude)), stopover: true});
           waypts.push({location: (String(data[3].latitude) + ", " + String(data[3].longitude)), stopover: true});
-          console.log(data);
           calculateAndDisplayRoute(directionsService, directionsDisplay, waypts);
         })
       });
@@ -69,6 +71,7 @@ function initMap() {
             contentType: 'application/json; charset=utf-8',
             dataType: 'json'
             }).done(function(data){
+            route_id = data[0].route_id
           start.push({location: (String(data[0].latitude) + ", " + String(data[0].longitude))});
           waypts.push({location: (String(data[1].latitude) + ", " + String(data[1].longitude)), stopover: true});
           waypts.push({location: (String(data[2].latitude) + ", " + String(data[2].longitude)), stopover: true});
@@ -100,6 +103,22 @@ function loadScript() {
   script.type = 'text/javascript';
   script.src = "https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_KEY'] %>&libraries=drawing&callback=initMap";
   document.body.appendChild(script);
+  $("body").on("submit", "#save-route-form", function(event){
+    event.preventDefault();
+    var url = $(this).attr("action")
+    var total_miles = (total * 0.000621371192).toFixed(2)
+    $.ajax({
+      url: url,
+      method: "POST",
+      data: {
+        route_id: JSON.stringify(route_id),
+        total_miles: JSON.stringify(total_miles)
+       }
+    })
+    .done(function(response){
+      console.log(response)
+    })
+  })
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay, waypts) {

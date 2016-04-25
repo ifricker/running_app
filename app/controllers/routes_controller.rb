@@ -22,12 +22,15 @@ class RoutesController < ApplicationController
 
   # POST users/1/routes
   def create
-    @route = @user.routes.build(route_params)
+    if current_user
+      route = Route.find_by(id: params[:route_id])
+      route.distance = params[:total_miles][1..-2]
+      route.save
+      current_user.routes << route
 
-    if @route.save
-      redirect_to([@route.user, @route], notice: 'Route was successfully created.')
-    else
-      render action: 'new'
+      respond_to do |format|
+        format.json { render :json => route }
+      end
     end
   end
 

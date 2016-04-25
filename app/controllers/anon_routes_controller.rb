@@ -22,8 +22,6 @@ class AnonRoutesController < ApplicationController
     start_direction = rand(0...360)
     turn_direction = [1,2].sample
     start.save
-    new_route.start_id = start.id
-    new_route.save
     if params[:units] == "km"
         input_miles = km_to_miles(params[:input_miles].to_f)
     else
