@@ -1,3 +1,16 @@
-<h1>xRoute</h1>
+<div class="section" id="landing-content">
+  <%= image_tag "logo.png", :id => "logo" %>
 
-<div id="map"></div>
+  <%= render "distance_form" %>
+
+  <section class="button">
+    <%#= image_tag "button.png", :id => "loopify" %>
+    <%# image_tag "button_hover.png", :id => "loopify" %>
+  </section>
+</div>
+
+
+
+<div class="section" id="map"></div>
+<%= image_tag "arrow.png", :class => "up" %>
+<div id="directions-panel"></div>
