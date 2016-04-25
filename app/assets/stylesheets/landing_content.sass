@@ -17,12 +17,39 @@ html, body
     margin: 0 auto
     padding: 5% 0
 
+  .landing-header
+    text-align: center
+    color: #FFFFFF
+    font-family: 'Roboto', sans-serif
+
+    #tagline
+      font-weight: 100
+      font-size: 40px
+
+    #subheading
+      font-weight: 100
+
+  .loopify
+    display: block
+    margin: 20% auto
+
+    &:hover
+      cursor: pointer
+
   #loopify
     display: block
     margin: 20% auto
 
     &:hover
       cursor: pointer
+
+    &:active
+      border: none
+      outline: none
+
+    &:focus
+      border: none
+      outline: none
 
 .up
   z-index: 5
@@ -31,3 +58,16 @@ html, body
   top: 10px
   left: 0
   right: 0
+
+.down
+  z-index: 5
+  margin: 0 auto
+  position: absolute
+  bottom: 10px
+  left: 0
+  right: 0
+
+#directions
+  box-sizing: border-box
+  padding: 2em
+  text-align: center
