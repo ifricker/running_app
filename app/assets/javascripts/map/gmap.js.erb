@@ -6,7 +6,6 @@ var start = [];
 var waypts = [];
 var total = 0;
 var pos;
-
 function route(start, waypoints, distance){
   this.start = start;
   this.waypoints = waypoints;
@@ -18,6 +17,8 @@ function initMap() {
     center: {lat: 37.0902, lng: -95.7129},
     zoom: 6
   });
+
+
 
   marker = new google.maps.Marker({
     map: map,
@@ -48,6 +49,18 @@ function initMap() {
           waypts.push({location: (String(data[1].latitude) + ", " + String(data[1].longitude)), stopover: true});
           waypts.push({location: (String(data[2].latitude) + ", " + String(data[2].longitude)), stopover: true});
           waypts.push({location: (String(data[3].latitude) + ", " + String(data[3].longitude)), stopover: true});
+
+          var directionsService = new google.maps.DirectionsService;
+          var directionsDisplay = new google.maps.DirectionsRenderer({
+            draggable: true,
+            map: map,
+            panel: document.getElementById('directions')
+          });
+
+          directionsDisplay.addListener('directions_changed', function() {
+            computeTotalDistance(directionsDisplay.getDirections());
+          });
+
           calculateAndDisplayRoute(directionsService, directionsDisplay, waypts);
         })
       });
@@ -112,26 +125,18 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, waypts) 
   }, function(response, status) {
     if (status === google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
-      var route = response.routes[0];
-      var summaryPanel = document.getElementById('directions');
-      summaryPanel.innerHTML = '<b>Starting location: </b><br>' + String(route.summary) + '<br><br>' + String(route.warnings) + '<br><br>';
-      // For each route, display summary information.
-      for (var i = 0; i < route.legs.length; i++) {
-        var routeSegment = i + 1;
-        summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
-            '</b><br>';
-        summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
-        summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
-        for (var j = 0; j < route.legs[i].steps.length; j++) {
-          summaryPanel.innerHTML += route.legs[i].steps[j].instructions + '<br>';
-        };
-        summaryPanel.innerHTML += route.legs[i].distance.text + '<br>';
-        total += route.legs[i].distance.value
-        summaryPanel.innerHTML += "Total: " + ((total * 0.000621371192).toFixed(2)) + "mi<br><br>"
-      }
-
     } else {
       window.alert('Directions request failed due to ' + status);
     }
   });
+}
+
+function computeTotalDistance(result) {
+  var total = 0;
+  var myroute = result.routes[0];
+  for (var i = 0; i < myroute.legs.length; i++) {
+    total += myroute.legs[i].distance.value;
+  }
+  total = total / 1609.34;
+  document.getElementById('total').innerHTML = total.toFixed(1) + ' mi';
 }
