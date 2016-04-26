@@ -15,3 +15,6 @@
   <%= image_tag "nav_up.png", :class => "up" %>
   <%= image_tag "nav_down.png", :class => "down" %>
 <div class="section" id="directions"></div>
+<% if user_signed_in? %>
+  <%= render "/users/routes/save_route_form" %>
+<% end %>
