@@ -24,21 +24,26 @@ class RoutesController < ApplicationController
   def create
     if current_user
       route = Route.find_by(id: params[:route_id])
+      puts "$" * 30
+      puts params
+      puts "$" * 30
       route.distance = params[:total_miles][1..-2]
-      route.name = params[:route_summary][1..-2]
+      start = Waypoint.find_by(id: route.start_id)
+      location = Geokit::Geocoders::GoogleGeocoder.geocode("#{start.latitude}, #{start.longitude}")
+      route.name = location.formatted_address
       route.save
       current_user.routes << route
-
-      respond_to do |format|
-        format.json { render :json => route }
-      end
+      # respond_to do |format|
+      #   format.json { render :json => route }
+      # end
+      redirect_to(user_path(current_user), notice: 'Route was successfully saved.')
     end
   end
 
   # PUT users/1/routes/1
   def update
     if @route.update_attributes(route_params)
-      redirect_to([@route.user, @route], notice: 'Route was successfully updated.')
+      redirect_to(user_path(current_user), notice: 'Route was successfully updated.')
     else
       render action: 'edit'
     end
@@ -48,7 +53,7 @@ class RoutesController < ApplicationController
   def destroy
     @route.destroy
 
-    redirect_to user_routes_url(@user)
+    redirect_to(user_path(current_user), notice: 'Route was successfully deleted.')
   end
 
   private

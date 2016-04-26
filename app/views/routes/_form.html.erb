@@ -12,22 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :distance %><br />
-    <%= f.text_field :distance %>
-  </div>
-  <div class="field">
-    <%= f.label :starting_lat %><br />
-    <%= f.text_field :starting_lat %>
-  </div>
-  <div class="field">
-    <%= f.label :starting_lng %><br />
-    <%= f.text_field :starting_lng %>
-  </div>
-  <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit value: "Update Route Name" %>
   </div>
 <% end %>
