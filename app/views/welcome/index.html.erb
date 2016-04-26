@@ -18,3 +18,8 @@
     <p>Total Distance: <span id="total"></span></p>
   </div>
 </div>
+
+<% if user_signed_in? %>
+  <%= render "/users/routes/save_route_form" %>
+<% end %>
+

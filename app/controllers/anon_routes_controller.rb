@@ -22,8 +22,6 @@ class AnonRoutesController < ApplicationController
     start_direction = rand(0...360)
     turn_direction = [1,2].sample
     start.save
-    new_route.start_id = start.id
-    new_route.save
     if params[:units] == "km"
         input_miles = km_to_miles(params[:input_miles].to_f)
     else
@@ -41,6 +39,9 @@ class AnonRoutesController < ApplicationController
     new_route.waypoints << Waypoint.create(latitude: wp1.lat, longitude: wp1.lng)
     new_route.waypoints << Waypoint.create(latitude: wp2.lat, longitude: wp2.lng)
     new_route.waypoints << Waypoint.create(latitude: wp3.lat, longitude: wp3.lng)
+
+    url = "https://www.google.com/maps?saddr=#{start.latitude},+#{start.longitude}&daddr=#{wp1.latitude},+#{wp1.longitude}+to:#{wp2.latitude},+#{wp2.longitude}+to:#{wp3.latitude},+#{wp3.longitude}+to:#{start.latitude},+#{start.longitude}&dirflg=w"
+    puts url
 
     respond_to do |format|
       format.json { render :json => new_route.waypoints }
