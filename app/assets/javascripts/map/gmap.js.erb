@@ -112,7 +112,8 @@ function loadScript() {
       method: "POST",
       data: {
         route_id: JSON.stringify(route_id),
-        total_miles: JSON.stringify(total_miles)
+        total_miles: JSON.stringify(total_miles),
+        route_summary: JSON.stringify(route_summary)
        }
     })
     .done(function(response){
@@ -127,13 +128,15 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, waypts) 
     destination: start[0].location,
     waypoints: waypts,
     optimizeWaypoints: true,
-    travelMode: google.maps.TravelMode.WALKING
+    travelMode: google.maps.TravelMode.WALKING,
   }, function(response, status) {
     if (status === google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
       var route = response.routes[0];
       var summaryPanel = document.getElementById('directions');
-      summaryPanel.innerHTML = '<b>Starting location: </b><br>' + String(route.summary) + '<br><br>' + String(route.warnings) + '<br><br>';
+      route_summary = String(route.summary)
+      console.log(route.url)
+      summaryPanel.innerHTML = '<b>Starting location: </b><br>' + route_summary + '<br><br>' + String(route.warnings) + '<br><br>';
       // For each route, display summary information.
       for (var i = 0; i < route.legs.length; i++) {
         var routeSegment = i + 1;
@@ -147,6 +150,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, waypts) 
         summaryPanel.innerHTML += route.legs[i].distance.text + '<br>';
         total += route.legs[i].distance.value
         summaryPanel.innerHTML += "Total: " + ((total * 0.000621371192).toFixed(2)) + "mi<br><br>"
+
       }
 
     } else {

@@ -25,6 +25,7 @@ class RoutesController < ApplicationController
     if current_user
       route = Route.find_by(id: params[:route_id])
       route.distance = params[:total_miles][1..-2]
+      route.name = params[:route_summary][1..-2]
       route.save
       current_user.routes << route
 

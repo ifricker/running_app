@@ -40,6 +40,9 @@ class AnonRoutesController < ApplicationController
     new_route.waypoints << Waypoint.create(latitude: wp2.lat, longitude: wp2.lng)
     new_route.waypoints << Waypoint.create(latitude: wp3.lat, longitude: wp3.lng)
 
+    url = "https://www.google.com/maps?saddr=#{start.latitude},+#{start.longitude}&daddr=#{wp1.latitude},+#{wp1.longitude}+to:#{wp2.latitude},+#{wp2.longitude}+to:#{wp3.latitude},+#{wp3.longitude}+to:#{start.latitude},+#{start.longitude}&dirflg=w"
+    puts url
+
     respond_to do |format|
       format.json { render :json => new_route.waypoints }
     end
