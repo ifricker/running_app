@@ -10,7 +10,7 @@ class AnonRoutesController < ApplicationController
     new_route = Route.new()
 
     if (params[:start_location].empty? && !lat )
-      location = Geokit::Geocoders::GoogleGeocoder.geocode("Balboa Park, San Diego, CA")
+      location = Geokit::Geocoders::GoogleGeocoder.geocode("San Francisco, CA")
       start = Waypoint.create(latitude: location.lat, longitude: location.lng)
     elsif params[:start_location].empty?
       start = Waypoint.create(latitude: lat, longitude: lng)
