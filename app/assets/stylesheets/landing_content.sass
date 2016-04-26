@@ -13,25 +13,6 @@ $btn-width: $btn-height * 3
 $btn-border-radius: $btn-height / 2
 $btn-border-width: $btn-border-radius / 10
 
-.btn.loopify
-  -webkit-border-radius: $btn-border-radius
-  -moz-border-radius: $btn-border-radius
-  border-radius: $btn-border-radius
-  background-color: transparent
-  border: solid
-  border-width: $btn-border-width
-  border-color: $btn-color
-  color: $btn-color
-  font-size: $btn-font-size
-  font-family: 'Pacifico', cursive
-  height: $btn-height
-  line-height: $btn-line-height
-  padding-bottom: $btn-padding-bottom
-  width: $btn-width
-
-  &:hover
-    background-color: transparentize($btn-color, 0.5)
-
 .section
   position: relative
   width: 100%
@@ -75,9 +56,24 @@ $btn-border-width: $btn-border-radius / 10
   .loopify
     display: block
     margin: 10% auto
+    -webkit-border-radius: $btn-border-radius
+    -moz-border-radius: $btn-border-radius
+    border-radius: $btn-border-radius
+    background-color: transparent
+    border: solid
+    border-width: $btn-border-width
+    border-color: $btn-color
+    color: $btn-color
+    font-size: $btn-font-size
+    font-family: 'Pacifico', cursive
+    height: $btn-height
+    line-height: $btn-line-height
+    padding-bottom: $btn-padding-bottom
+    width: $btn-width
 
     &:hover
       cursor: pointer
+      background-color: transparentize($btn-color, 0.5)
 
     &:active
       border: none
@@ -108,3 +104,4 @@ $btn-border-width: $btn-border-radius / 10
   padding: 2em
   text-align: center
   overflow: scroll
+  margin: 0 auto

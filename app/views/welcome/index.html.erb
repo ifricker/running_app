@@ -2,8 +2,8 @@
   <%= image_tag "logo.png", :id => "logo" %>
 
   <section class="landing-header">
-    <h1 id="tagline">Run from Routine</h1>
-    <h2 id="subheading">Randomize your run,  jog,  or walk with Loopi</h2>
+    <h2 id="tagline">Run from Routine</h2>
+    <h3 id="subheading">Randomize your run,  jog,  or walk with Loopi</h3>
   </section>
 
   <%= render "distance_form" %>
@@ -12,6 +12,9 @@
 <div class="section" id="map"></div>
   <%= image_tag "nav_up.png", :class => "up" %>
   <%= image_tag "direction.png", :class => "down" %>
-<div class="section" id="directions">
-  <p>Total Distance: <span id="total"></span></p>
+
+<div class="section" id="directions-parent">
+  <div id="directions">
+    <p>Total Distance: <span id="total"></span></p>
+  </div>
 </div>
