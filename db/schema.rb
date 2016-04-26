@@ -18,7 +18,8 @@ ActiveRecord::Schema.define(version: 20160423014638) do
 
   create_table "routes", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "distance"
+    t.decimal  "distance"
+    t.integer  "start_id"
     t.string   "name"
     t.string   "map_url"
     t.datetime "created_at", null: false
