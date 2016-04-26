@@ -1,0 +1,196 @@
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(/Users/apprentice/running_app/app/assets/stylesheets/map.css);
+@import url(/Users/apprentice/running_app/app/assets/stylesheets/sidebar.css);
+/* line 1, /Users/apprentice/running_app/app/assets/stylesheets/landing_content.sass */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+  color: #FFFFFF;
+}
+
+/* line 18, /Users/apprentice/running_app/app/assets/stylesheets/landing_content.sass */
+.section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 23, /Users/apprentice/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content {
+  background-color: #F83600;
+  background-image: -webkit-linear-gradient(#F83600, #FE8C00);
+  background-image: linear-gradient(#F83600, #FE8C00);
+  opacity: 0.8;
+}
+/* line 27, /Users/apprentice/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content #logo {
+  width: 22%;
+  max-width: 10em;
+  min-width: 6em;
+  display: block;
+  margin: 0 auto;
+  padding-top: 8%;
+}
+/* line 35, /Users/apprentice/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content .landing-header {
+  padding: 3%;
+  text-align: center;
+}
+/* line 39, /Users/apprentice/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content .landing-header #tagline {
+  font-weight: 100;
+  font-size: 4vw;
+  margin: 0 auto;
+}
+/* line 44, /Users/apprentice/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content .landing-header #subheading {
+  font-weight: 100;
+  font-size: 2vw;
+  margin: 0;
+}
+/* line 49, /Users/apprentice/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content #distance_form {
+  width: 50%;
+  margin: 5% auto 0 auto;
+}
+/* line 53, /Users/apprentice/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content #distance_form #distance_form_input {
+  margin: 0 auto;
+  width: 350px;
+}
+/* line 57, /Users/apprentice/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content #distance_form #distance_form_input label {
+  color: #FFFFFF;
+  margin-top: 6px;
+}
+/* line 61, /Users/apprentice/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content #distance_form #distance_form_input input {
+  border-radius: 5px;
+  background: #fff;
+  border: 1px solid #c6c7cc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+  color: #636466;
+  padding: 6px;
+  padding-left: 10px;
+  margin-top: 6px;
+  font-size: 14px;
+}
+/* line 72, /Users/apprentice/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content #distance_form #distance_form_input #start_location {
+  width: 260px;
+}
+/* line 76, /Users/apprentice/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content .loopify {
+  display: block;
+  margin: 10% auto;
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  border-radius: 35px;
+  background-color: transparent;
+  border: solid;
+  border-width: 3.5px;
+  border-color: white;
+  color: white;
+  font-size: 40px;
+  font-family: "Pacifico", cursive;
+  height: 70px;
+  line-height: 30px;
+  padding-bottom: 15px;
+  width: 210px;
+}
+/* line 94, /Users/apprentice/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content .loopify:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+/* line 98, /Users/apprentice/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content .loopify:active {
+  border: none;
+  outline: none;
+}
+/* line 102, /Users/apprentice/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content .loopify:focus {
+  border: none;
+  outline: none;
+}
+
+/* line 106, /Users/apprentice/running_app/app/assets/stylesheets/landing_content.sass */
+.up {
+  z-index: 5;
+  margin: 0 auto;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+}
+
+/* line 114, /Users/apprentice/running_app/app/assets/stylesheets/landing_content.sass */
+.down {
+  z-index: 5;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+}
+
+/* line 122, /Users/apprentice/running_app/app/assets/stylesheets/landing_content.sass */
+#directions {
+  box-sizing: border-box;
+  padding: 2em;
+  text-align: center;
+  overflow: scroll;
+  margin: 0 auto;
+}
+
+/* line 1, /Users/apprentice/running_app/app/assets/stylesheets/users.scss */
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+/* line 6, /Users/apprentice/running_app/app/assets/stylesheets/users.scss */
+th, td {
+  text-align: left;
+  padding: 6px;
+}
+
+/* line 11, /Users/apprentice/running_app/app/assets/stylesheets/users.scss */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* line 13, /Users/apprentice/running_app/app/assets/stylesheets/users.scss */
+.users-show {
+  margin: 5%;
+}
+
+/* line 17, /Users/apprentice/running_app/app/assets/stylesheets/users.scss */
+.save-button {
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  border-radius: 35px;
+  background: linear-gradient(#F83600, #FE8C00);
+  border: solid;
+  border-width: 3.5px;
+  border-color: white;
+  color: white;
+  font-size: 20px;
+  font-family: 'Pacifico', cursive;
+  height: 49px;
+  line-height: 30px;
+  padding-bottom: 15px;
+  padding-top: 5px;
+  width: 147px;
+}
+
+/* line 35, /Users/apprentice/running_app/app/assets/stylesheets/users.scss */
+.save-button:hover {
+  cursor: pointer;
+  background: white;
+  color: #F83600;
+  border-color: #F83600;
+}
