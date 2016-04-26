@@ -1,22 +1,21 @@
 $(window).load(function() {
   loadScript();
 });
+
 var start = [];
 var waypts = [];
 var total = 0;
+var pos;
 function route(start, waypoints, distance){
   this.start = start;
   this.waypoints = waypoints;
   this.distance = distance;
 }
 
-var styleArray = [{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"color":"#f7f1df"}]},{"featureType":"landscape.natural","elementType":"geometry","stylers":[{"color":"#d0e3b4"}]},{"featureType":"landscape.natural.terrain","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.medical","elementType":"geometry","stylers":[{"color":"#fbd3da"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#bde6ab"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffe15f"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#efd151"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"black"}]},{"featureType":"transit.station.airport","elementType":"geometry.fill","stylers":[{"color":"#cfb2db"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#a2daf2"}]}]
-
 function initMap() {
-
   var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 16
+    center: {lat: 37.0902, lng: -95.7129},
+    zoom: 6
   });
 
   marker = new google.maps.Marker({
@@ -34,6 +33,11 @@ function initMap() {
         lng: position.coords.longitude
       };
 
+      var directionsDisplay = new google.maps.DirectionsRenderer({
+        draggable: true,
+        map: map,
+        panel: document.getElementById('directions')
+      });
 
       $('#distance_form').on('submit', function(event) {
         event.preventDefault();
@@ -41,27 +45,74 @@ function initMap() {
         start = [];
         waypts = [];
         total = 0;
-        $.post("/anon_routes?waypoint[lat]="+pos.lat + "&waypoint[lng]="+pos.lng + "&" + data).done(function(data){
+        $.post({
+            url: "/anon_routes?waypoint[lat]="+pos.lat + "&waypoint[lng]="+pos.lng + "&" + data,
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json'
+            }).done(function(data){
+            route_id = data[0].route_id
+
           start.push({location: (String(data[0].latitude) + ", " + String(data[0].longitude))});
           waypts.push({location: (String(data[1].latitude) + ", " + String(data[1].longitude)), stopover: true});
           waypts.push({location: (String(data[2].latitude) + ", " + String(data[2].longitude)), stopover: true});
           waypts.push({location: (String(data[3].latitude) + ", " + String(data[3].longitude)), stopover: true});
+
+          var directionsService = new google.maps.DirectionsService;
+
+          directionsDisplay.draggable = true;
+          directionsDisplay.addListener('directions_changed', function() {
+            computeTotalDistance(directionsDisplay.getDirections());
+          });
+
           calculateAndDisplayRoute(directionsService, directionsDisplay, waypts);
         })
       });
-
       marker.setPosition(pos);
       map.setCenter(pos);
+
     }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
+
+      var directionsDisplay = new google.maps.DirectionsRenderer({
+        draggable: true,
+        map: map,
+        panel: document.getElementById('directions')
+      });
+
+        $('#distance_form').on('submit', function(event) {
+        event.preventDefault();
+        var pos = {
+          lat: start.latitude,
+          lng: start.longitude
+        };
+
+        var data = $(this).serialize()
+        start = [];
+        waypts = [];
+        total = 0;
+        $.post({
+            url: "/anon_routes?" + data,
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json'
+            }).done(function(data){
+            route_id = data[0].route_id
+          start.push({location: (String(data[0].latitude) + ", " + String(data[0].longitude))});
+          waypts.push({location: (String(data[1].latitude) + ", " + String(data[1].longitude)), stopover: true});
+          waypts.push({location: (String(data[2].latitude) + ", " + String(data[2].longitude)), stopover: true});
+          waypts.push({location: (String(data[3].latitude) + ", " + String(data[3].longitude)), stopover: true});
+
+          var directionsService = new google.maps.DirectionsService;
+          directionsDisplay.draggable = true;
+          directionsDisplay.addListener('directions_changed', function() {
+            computeTotalDistance(directionsDisplay.getDirections());
+          });
+          calculateAndDisplayRoute(directionsService, directionsDisplay, waypts);
+        })
+      });
+      marker.setPosition(pos);
+      map.setCenter(pos);
     });
-  } else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
   }
 
-  var directionsService = new google.maps.DirectionsService;
-  var directionsDisplay = new google.maps.DirectionsRenderer;
 
   directionsDisplay.setMap(map);
 
@@ -77,8 +128,25 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 function loadScript() {
   var script = document.createElement('script');
   script.type = 'text/javascript';
-  script.src = "https://maps.googleapis.com/maps/api/js?key="+"<%= ENV['GOOGLE_KEY'] %>"+"&libraries=drawing&callback=initMap";
+  script.src = "https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_KEY'] %>&libraries=drawing&callback=initMap";
   document.body.appendChild(script);
+  $("body").on("submit", "#save-route-form", function(event){
+    event.preventDefault();
+    var url = $(this).attr("action")
+    var total_miles = (total * 0.000621371192).toFixed(2)
+    $.ajax({
+      url: url,
+      method: "POST",
+      data: {
+        route_id: JSON.stringify(route_id),
+        total_miles: JSON.stringify(total_miles),
+        route_summary: JSON.stringify(route_summary)
+       }
+    })
+    .done(function(response){
+      console.log(response)
+    })
+  })
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay, waypts) {
@@ -87,30 +155,23 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, waypts) 
     destination: start[0].location,
     waypoints: waypts,
     optimizeWaypoints: true,
-    travelMode: google.maps.TravelMode.WALKING
+    travelMode: google.maps.TravelMode.WALKING,
   }, function(response, status) {
     if (status === google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
-      var route = response.routes[0];
-      var summaryPanel = document.getElementById('directions-panel');
-      summaryPanel.innerHTML = '<b>Starting location: </b><br>' + String(route.summary) + '<br><br>' + String(route.warnings) + '<br><br>';
-      // For each route, display summary information.
-      for (var i = 0; i < route.legs.length; i++) {
-        var routeSegment = i + 1;
-        summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
-            '</b><br>';
-        summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
-        summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
-        for (var j = 0; j < route.legs[i].steps.length; j++) {
-          summaryPanel.innerHTML += route.legs[i].steps[j].instructions + '<br>';
-        };
-        summaryPanel.innerHTML += route.legs[i].distance.text + '<br>';
-        total += route.legs[i].distance.value
-        summaryPanel.innerHTML += "Total: " + ((total * 0.000621371192).toFixed(2)) + "mi<br><br>"
-      }
 
     } else {
       window.alert('Directions request failed due to ' + status);
     }
   });
+}
+
+function computeTotalDistance(result) {
+  var total = 0;
+  var myroute = result.routes[0];
+  for (var i = 0; i < myroute.legs.length; i++) {
+    total += myroute.legs[i].distance.value;
+  }
+  total = total / 1609.34;
+  document.getElementById('total').innerHTML = total.toFixed(1) + ' mi';
 }
