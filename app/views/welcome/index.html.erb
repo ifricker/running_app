@@ -15,11 +15,12 @@
 
 
   <div class="section" id="directions">
+    <br><br><br>
+    <% if user_signed_in? %>
+      <%= render "/users/routes/save_route_form" %>
+    <% end %>
     <p>Total Distance: <span id="total"></span></p>
   </div>
 
 
-<% if user_signed_in? %>
-  <%= render "/users/routes/save_route_form" %>
-<% end %>
 

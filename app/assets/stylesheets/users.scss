@@ -1,0 +1,41 @@
+table {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+th, td {
+    text-align: left;
+    padding: 6px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+.users-show {
+  margin: 5%;
+}
+
+.save-button {
+    -webkit-border-radius: $btn-border-radius;
+    -moz-border-radius: $btn-border-radius;
+    border-radius: $btn-border-radius;
+    background: linear-gradient(#F83600, #FE8C00);
+    border: solid;
+    border-width: $btn-border-width;
+    border-color: white;
+    color: white;
+    font-size: ($btn-font-size * 0.5);
+    font-family: 'Pacifico', cursive;
+    height: ($btn-height * 0.7);
+    line-height: $btn-line-height;
+    padding-bottom: $btn-padding-bottom;
+    padding-top: 5px;
+    width: ($btn-width * 0.7);
+}
+
+.save-button:hover{
+  cursor: pointer;
+  background: white;
+  color: #F83600;
+  border-color: #F83600;
+}
+

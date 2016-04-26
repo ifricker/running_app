@@ -1,19 +1,25 @@
-<h2><%= @user.username %></h2>
-
-
-<% if @user.routes.count > 0 %>
-<table>
-  <tr>
-  <th>Route Name</th>
-  <th>Distance</th>
-  <th>View</th>
-  </tr>
-  <% @user.routes.each do |route| %>
-  <tr>
-    <td><%= route.name %></td>
-    <td><%= route.distance %></td>
-    <td><%= route.map_url %></td>
+<div class="users-show">
+  <h2><%= @user.username %></h2>
+  <% if @user.routes.count > 0 %>
+  <table>
+    <tr>
+    <th>Route Name</th>
+    <th>Distance</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
     </tr>
+    <% @user.routes.each do |route| %>
+    <tr>
+      <td><%= route.name %></td>
+      <td><%= route.distance %></td>
+      <td><a href="<%= route.map_url %>">View map</a></td>
+      <td><a href="/users/<%= current_user.id %>/routes/<%= route.id %>/edit">Edit</a></td>
+      <form>
+        <td><%= link_to 'Delete', user_route_path(current_user, route), method: :delete %></td>
+      </form>
+      </tr>
+    <% end %>
+  </table>
   <% end %>
-</table>
-<% end %>
+</div>

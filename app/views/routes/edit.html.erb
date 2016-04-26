@@ -1,6 +1,7 @@
-<h1>Editing route</h1>
+<div class="users-show">
+<h1>Editing Route Name</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', [@route.user, @route] %> |
-<%= link_to 'Back', user_routes_path(@route.user) %>
+<%= link_to 'Back', user_path(current_user) %>
+</div>

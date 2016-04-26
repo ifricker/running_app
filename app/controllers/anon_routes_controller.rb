@@ -19,6 +19,8 @@ class AnonRoutesController < ApplicationController
       start = Waypoint.create(latitude: location.lat, longitude: location.lng)
     end
     start.route = new_route
+    new_route.start_id = start.id
+    new_route.save
     start_direction = rand(0...360)
     turn_direction = [1,2].sample
     start.save
