@@ -36,6 +36,7 @@ end
 group :development do
   gem 'better_errors'
   gem 'byebug', platforms: :mri
+  gem 'rails_real_favicon'
   gem 'web-console', '~> 2.0'
   gem 'nested_scaffold'
 end
