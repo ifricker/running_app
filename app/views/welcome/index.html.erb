@@ -13,11 +13,11 @@
   <%= image_tag "nav_up.png", :class => "up" %>
   <%= image_tag "direction.png", :class => "down" %>
 
-<div class="section" id="directions-parent">
-  <div id="directions">
+
+  <div class="section" id="directions">
     <p>Total Distance: <span id="total"></span></p>
   </div>
-</div>
+
 
 <% if user_signed_in? %>
   <%= render "/users/routes/save_route_form" %>
