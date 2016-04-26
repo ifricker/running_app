@@ -1,49 +1,26 @@
-html, body
-  height: 100%
-  margin: 0
-  padding: 0
-  overflow: hidden
-  font-family: 'Roboto', sans-serif
-  color: #FFFFFF
-
-$btn-color: white
-$btn-height: 70px
-$btn-font-size: ($btn-height / 2) + 5px
-$btn-line-height: ($btn-height / 2) - 5px
-$btn-padding-bottom: $btn-line-height / 2
-$btn-width: $btn-height * 3
-$btn-border-radius: $btn-height / 2
-$btn-border-width: $btn-border-radius / 10
-
-.section
-  position: relative
-  width: 100%
-  height: 100%
-
 #landing-content
   +linear-gradient(#F83600, #FE8C00)
-  opacity: 0.80
+  opacity: 0.75
 
   #logo
     width: 22%
-    max-width: 10em
-    min-width: 6em
+    max-width: 120px
+    min-width: 80px
     display: block
     margin: 0 auto
-    padding-top: 8%
+    padding-top: 40px
 
   .landing-header
     padding: 3%
     text-align: center
 
     #tagline
-      font-weight: 100
-      font-size: 4vw
+      font-size: 21px
+      font-weight: 300
       margin: 0 auto
 
     #subheading
-      font-weight: 100
-      font-size: 2vw
+      font-weight: 200
       margin: 0
 
   #distance_form
@@ -76,24 +53,11 @@ $btn-border-width: $btn-border-radius / 10
   .loopify
     display: block
     margin: 10% auto
-    -webkit-border-radius: $btn-border-radius
-    -moz-border-radius: $btn-border-radius
-    border-radius: $btn-border-radius
-    background-color: transparent
-    border: solid
-    border-width: $btn-border-width
-    border-color: $btn-color
-    color: $btn-color
-    font-size: $btn-font-size
-    font-family: 'Pacifico', cursive
-    height: $btn-height
-    line-height: $btn-line-height
-    padding-bottom: $btn-padding-bottom
-    width: $btn-width
+
 
     &:hover
       cursor: pointer
-      background-color: transparentize($btn-color, 0.5)
+
 
     &:active
       border: none
