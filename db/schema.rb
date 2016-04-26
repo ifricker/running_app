@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20160423014638) do
     t.integer  "user_id"
     t.string   "distance"
     t.string   "name"
+    t.string   "map_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

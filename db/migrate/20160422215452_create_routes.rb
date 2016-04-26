@@ -4,6 +4,7 @@ class CreateRoutes < ActiveRecord::Migration
       t.references :user, foreign_key: true
       t.string :distance
       t.string :name
+      t.string :map_url
 
       t.timestamps null: false
     end
