@@ -3,6 +3,8 @@ html, body
   margin: 0
   padding: 0
   overflow: hidden
+  font-family: 'Roboto', sans-serif
+  color: #FFFFFF
 
 $btn-color: white
 $btn-height: 70px
@@ -33,8 +35,6 @@ $btn-border-width: $btn-border-radius / 10
   .landing-header
     padding: 3%
     text-align: center
-    color: #FFFFFF
-    font-family: 'Roboto', sans-serif
 
     #tagline
       font-weight: 100
@@ -51,7 +51,27 @@ $btn-border-width: $btn-border-radius / 10
     margin: 5% auto 0 auto
 
     #distance_form_input
-      text-align: center
+      margin: 0 auto
+      width: 350px
+
+      label
+        color: #FFFFFF
+        margin-top: 6px
+
+      input
+        border-radius: 5px
+        background: #fff
+        border: 1px solid #c6c7cc
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1)
+        color: #636466
+        padding: 6px
+        padding-left: 10px
+        margin-top: 6px
+        font-size: 14px
+
+      #start_location
+        width: 260px
+
 
   .loopify
     display: block
