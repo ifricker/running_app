@@ -2,6 +2,16 @@ html, body
   height: 100%
   margin: 0
   padding: 0
+  overflow: hidden
+
+$btn-color: white
+$btn-height: 70px
+$btn-font-size: ($btn-height / 2) + 5px
+$btn-line-height: ($btn-height / 2) - 5px
+$btn-padding-bottom: $btn-line-height / 2
+$btn-width: $btn-height * 3
+$btn-border-radius: $btn-height / 2
+$btn-border-width: $btn-border-radius / 10
 
 .section
   position: relative
@@ -13,35 +23,57 @@ html, body
   opacity: 0.80
 
   #logo
+    width: 22%
+    max-width: 10em
+    min-width: 6em
     display: block
     margin: 0 auto
-    padding: 5% 0
+    padding-top: 8%
 
   .landing-header
+    padding: 3%
     text-align: center
     color: #FFFFFF
     font-family: 'Roboto', sans-serif
 
     #tagline
       font-weight: 100
-      font-size: 40px
+      font-size: 4vw
+      margin: 0 auto
 
     #subheading
       font-weight: 100
+      font-size: 2vw
+      margin: 0
+
+  #distance_form
+    width: 50%
+    margin: 5% auto 0 auto
+
+    #distance_form_input
+      text-align: center
 
   .loopify
     display: block
-    margin: 20% auto
+    margin: 10% auto
+    -webkit-border-radius: $btn-border-radius
+    -moz-border-radius: $btn-border-radius
+    border-radius: $btn-border-radius
+    background-color: transparent
+    border: solid
+    border-width: $btn-border-width
+    border-color: $btn-color
+    color: $btn-color
+    font-size: $btn-font-size
+    font-family: 'Pacifico', cursive
+    height: $btn-height
+    line-height: $btn-line-height
+    padding-bottom: $btn-padding-bottom
+    width: $btn-width
 
     &:hover
       cursor: pointer
-
-  #loopify
-    display: block
-    margin: 20% auto
-
-    &:hover
-      cursor: pointer
+      background-color: transparentize($btn-color, 0.5)
 
     &:active
       border: none
@@ -71,3 +103,5 @@ html, body
   box-sizing: border-box
   padding: 2em
   text-align: center
+  overflow: scroll
+  margin: 0 auto

@@ -2,19 +2,24 @@
   <%= image_tag "logo.png", :id => "logo" %>
 
   <section class="landing-header">
-    <h1 id="tagline">Where your run starts and ends in the same place.</h1>
-    <h2 id="subheading">Enter your desired running distance and we'll generate a route for you.</h2>
+    <h2 id="tagline">Run from Routine</h2>
+    <h3 id="subheading">Randomize your run,  jog,  or walk with Loopi</h3>
   </section>
 
-
   <%= render "distance_form" %>
-
 </div>
 
 <div class="section" id="map"></div>
   <%= image_tag "nav_up.png", :class => "up" %>
-  <%= image_tag "nav_down.png", :class => "down" %>
-<div class="section" id="directions"></div>
+  <%= image_tag "direction.png", :class => "down" %>
+
+<div class="section" id="directions-parent">
+  <div id="directions">
+    <p>Total Distance: <span id="total"></span></p>
+  </div>
+</div>
+
 <% if user_signed_in? %>
   <%= render "/users/routes/save_route_form" %>
 <% end %>
+
