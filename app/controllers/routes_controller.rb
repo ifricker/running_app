@@ -22,6 +22,8 @@ class RoutesController < ApplicationController
 
   # POST users/1/routes
   def create
+    puts "in users create block"
+    puts "_______________________________________"
     if current_user
       route = Route.find_by(id: params[:route_id])
       puts "$" * 30
@@ -31,12 +33,18 @@ class RoutesController < ApplicationController
       start = Waypoint.find_by(id: route.start_id)
       location = Geokit::Geocoders::GoogleGeocoder.geocode("#{start.latitude}, #{start.longitude}")
       route.name = location.formatted_address
-      route.save
-      current_user.routes << route
-      # respond_to do |format|
-      #   format.json { render :json => route }
-      # end
-      redirect_to(user_path(current_user), notice: 'Route was successfully saved.')
+
+      if route.save
+        current_user.routes << route
+        flash[:success] = "Route was successfully saved."
+      end
+
+      respond_to do |format|
+        format.json do
+          render json: flash
+        end
+      end
+      # redirect_to(user_path(current_user), notice: 'Route was successfully saved.')
     end
   end
 
