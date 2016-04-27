@@ -1,4 +1,11 @@
 <div class="section" id="landing-content">
+
+  <%= image_tag "logo.svg", :id => "logo" %>
+
+  <section class="landing-header">
+    <p id="tagline">Run from Routine</p>
+    <p id="subheading">Randomize your run,  jog,  or walk with Loopi</p>
+
   <%= link_to "About Us", '/about_us' %>
 
   <% if current_user %>
@@ -14,6 +21,7 @@
   <section class="landing-header">
     <h2 id="tagline">Run from Routine</h2>
     <h3 id="subheading">With loopi, you'll never have to run the same route again.</h3>
+
   </section>
 
   <%= render "distance_form" %>
@@ -24,14 +32,11 @@
   <%= image_tag "direction.png", :class => "down" %>
 
 
-  <div class="section" id="directions">
-    <br><br><br>
-    <div id="response-box"></div>
-    <% if user_signed_in? %>
-      <%= render "/users/routes/save_route_form" %>
-    <% end %>
-    <p>Total Distance: <span id="total"></span></p>
-  </div>
-
-
-
+<div class="section" id="directions">
+  <br><br><br>
+  <div id="response-box"></div>
+  <% if user_signed_in? %>
+    <%= render "/users/routes/save_route_form" %>
+  <% end %>
+  <p>Total Distance: <span id="total"></span></p>
+</div>

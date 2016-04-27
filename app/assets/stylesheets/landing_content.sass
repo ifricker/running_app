@@ -1,118 +1,125 @@
-html, body
-  height: 100%
-  margin: 0
-  padding: 0
-  overflow: hidden
-  font-family: 'Roboto', sans-serif
-
-$btn-color: white
-$btn-height: 70px
-$btn-font-size: ($btn-height / 2) + 5px
-$btn-line-height: ($btn-height / 2) - 5px
-$btn-padding-bottom: $btn-line-height / 2
-$btn-width: $btn-height * 3
-$btn-border-radius: $btn-height / 2
-$btn-border-width: $btn-border-radius / 10
-
-.section
-  position: relative
-  width: 100%
-  height: 100%
-
 #landing-content
   +linear-gradient(#F83600, #FE8C00)
-  opacity: 0.80
+  opacity: 0.75
+  display: -webkit-flex
+  display: flex
+  -webkit-flex-direction: column
+  flex-direction: column
+  -webkit-align-items: center
+  align-items: center
+  -webkit-justify-content: space-around
+  justify-content: space-around
 
   #logo
     width: 22%
-    max-width: 10em
-    min-width: 6em
+    max-width: 80px
+    min-width: 80px
     display: block
-    margin: 0 auto
-    padding-top: 8%
 
   .landing-header
-    padding: 3%
+    padding: 0 16px
     text-align: center
     color: #FFFFFF
 
     #tagline
-      font-weight: 100
-      font-size: 4vw
-      margin: 0 auto
+      font-size: 21px
+      font-weight: 300
+      margin: 0
 
     #subheading
-      font-weight: 100
-      font-size: 2vw
+      font-size: 16px
+      font-weight: 200
       margin: 0
 
   #distance_form
-    margin-left: auto
-    margin-right: auto
+    display: -webkit-flex
+    display: flex
+    -webkit-flex-direction: column
+    flex-direction: column
+    -webkit-align-items: center
+    align-items: center
+    -webkit-justify-content: space-around
+    justify-content: space-around
+    width: 50%
+    height: 60%
 
     #distance_form_input
-      margin: 0 auto
-      width: 350px
-      background: rgba(255, 255, 255, .2)
-      padding: 20px 35px 25px 40px
-      border-radius: 15px
+      display: flex
+      justify-content: space-around
+      font-size: 18px
+      width: 140px
 
-      label
-        color: #FFFFFF
-        margin-top: 6px
+    #start_location
+      font-size: 18px
+      color: rgb(255, 255, 255)
+      display:inline-block
+      border: none
+      background: transparent
+      cursor: pointer
+      border-bottom: 1px dashed rgb(255, 255, 255)
+      @include placeholder
+        color: rgba(255, 255, 255, 0.5)
 
-      input
-        border-radius: 5px
-        background: #fff
-        border: 1px solid #c6c7cc
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1)
-        color: #636466
-        padding: 6px
-        padding-left: 10px
-        margin-top: 6px
-        font-size: 14px
+      &:focus
+        outline: none
+    // margin-left: auto
+    // margin-right: auto
 
-      #distance-units
-        border-radius: 5px
-        background: #fff
-        border: 1px solid #c6c7cc
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1)
-        color: #636466
-        padding: 6px
-        padding-left: 10px
-        margin-top: 6px
-        font-size: 14px
-        width: 100px
-        height: 31px
+    // #distance_form_input
+    //   margin: 0 auto
+    //   width: 350px
+    //   background: rgba(255, 255, 255, .2)
+    //   padding: 20px 35px 25px 40px
+    //   border-radius: 15px
 
-      #location-input
-        margin-top: 10px
+    //   label
+    //     color: #FFFFFF
+    //     margin-top: 6px
 
-      #start_location
-        width: 252px
+    //   input
+    //     border-radius: 5px
+    //     background: #fff
+    //     border: 1px solid #c6c7cc
+    //     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1)
+    //     color: #636466
+    //     padding: 6px
+    //     padding-left: 10px
+    //     margin-top: 6px
+    //     font-size: 14px
+
+    //   #distance-units
+    //     border-radius: 5px
+    //     background: #fff
+    //     border: 1px solid #c6c7cc
+    //     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1)
+    //     color: #636466
+    //     padding: 6px
+    //     padding-left: 10px
+    //     margin-top: 6px
+    //     font-size: 14px
+    //     width: 100px
+    //     height: 31px
+
+    //   #location-input
+    //     margin-top: 10px
+
+    //   #start_location
+    //     width: 252px
+
 
 
   .loopify
-    display: block
-    margin: 5% auto 10% auto
-    -webkit-border-radius: $btn-border-radius
-    -moz-border-radius: $btn-border-radius
-    border-radius: $btn-border-radius
-    background-color: transparent
-    border: solid
-    border-width: $btn-border-width
-    border-color: $btn-color
-    color: $btn-color
-    font-size: $btn-font-size
-    font-family: 'Pacifico', cursive
-    height: $btn-height
-    line-height: $btn-line-height
-    padding-bottom: $btn-padding-bottom
-    width: $btn-width
+    border: 2px solid rgb(255, 255, 255)
+    border-radius: 24px
+    background: transparent
+    padding: 6px 28px
+    color: rgb(255, 255, 255)
+    font-size: 18px
+    font-weight: 500
 
     &:hover
       cursor: pointer
-      background-color: transparentize($btn-color, 0.5)
+      background-color: rgba(255, 255, 255, 0.2)
 
     &:active
       border: none
