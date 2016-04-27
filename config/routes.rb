@@ -20,4 +20,6 @@
 
   get "/geocoding", to: "welcome#geocoding", as: "geocoding"
 
+  get "/about_us", to: "welcome#about", as: "about"
+
 end

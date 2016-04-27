@@ -12,11 +12,14 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'rails', '4.2.6'
 gem 'sass-rails', '~> 5.0'
-gem 'simple_form'
+# gem 'simple_form'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
+group :production do
+  gem 'rails_12factor'
+end
 
 
 group :development, :test do
@@ -33,6 +36,7 @@ end
 group :development do
   gem 'better_errors'
   gem 'byebug', platforms: :mri
+  gem 'rails_real_favicon'
   gem 'web-console', '~> 2.0'
   gem 'nested_scaffold'
 end
