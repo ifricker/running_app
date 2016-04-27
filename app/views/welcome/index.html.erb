@@ -1,6 +1,6 @@
 <div class="section" id="landing-content">
 
-  <%= image_tag "logo.svg", :id => "logo" %>
+  <%= image_tag "logo.png", :id => "logo" %>
 
   <section class="landing-header">
     <p id="tagline">Run from Routine</p>
@@ -22,10 +22,9 @@
 
 <div class="section" id="map"></div>
   <%= image_tag "nav_up.png", :class => "up" %>
-  <%= image_tag "direction.png", :class => "down" %>
+  <%= image_tag "nav_down.png", :class => "down" %>
 
 <div class="section" id="directions">
-  <br><br><br>
   <div id="response-box"></div>
   <% if user_signed_in? %>
     <%= render "/users/routes/save_route_form" %>
