@@ -21,16 +21,6 @@
 //     text-decoration: underline;
 // }
 
-// table {
-//     border-collapse: collapse;
-// }
-
-// th, td {
-//     text-align: left;
-//     padding: 6px;
-// }
-
-// tr:nth-child(even){background-color: #f2f2f2}
 
 // .users-show {
 //   margin: 5%;
@@ -56,11 +46,61 @@
 //     display: inline-block;
 // }
 
-.save-button:hover{
-  cursor: pointer;
-  background: white;
-  color: #F83600;
-  border-color: #F83600;
-}
+// .save-button:hover
+//   cursor: pointer;
+//   background: white;
+//   color: #F83600;
+//   border-color: #F83600;
+
+
+
+.users-show a
+  text-decoration: none
+  padding: 2px 7px
+  background-color: white
+  color: #F83600
+  border: #F83600 2px solid
+  border-radius: 5px
+  margin: 0 1px
+  &:hover
+    color: #000
+
+
+.users-show
+  padding: 5%
+  max-width: 500px
+
+.username
+  font-size: 2.5em
+  color: #000
+
+.pacifico-text
+  font-family: "Pacifico", cursive
+
+.field input
+  width: 250px
+  height: 20px
+  margin: 5px
+  padding: 5px
+
+// #loopi-logo
+//   font-family: "pacifico", cursive
+//   border: none
+
+#no-borders a
+  border: none
+
+
+.sign-in-container
+  +linear-gradient(#F83600, #FE8C00)
+  opacity: .75
+  border-radius: 15px
+  max-width: 400px
+  padding: 15px
+  margin: 0 auto
+  color: white
+
+.remember-me
+  padding: 5px 0
 
 

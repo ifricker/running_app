@@ -1,10 +1,10 @@
 <div class="section" id="landing-content">
 <% if !user_signed_in? %>
-  <%= link_to "Sign In", new_user_session_path %>
-  <%= link_to "Sign Up", new_user_registration_path %>
+<p><%= link_to "Sign In", new_user_session_path %> |
+  <%= link_to "Sign Up", new_user_registration_path %></p>
 <% else %>
-  <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-  <%= link_to "My Routes", user_path(current_user) %>
+  <p><%= link_to "My Routes", user_path(current_user) %> |
+  <%= link_to "Sign Out", destroy_user_session_path, method: :delete %></p>
 <% end %>
 
   <%= image_tag "logo.svg", :id => "logo" %>
@@ -16,13 +16,6 @@
 
   <%#= link_to "About Us", '/about_us' %>
 
-  <%# if current_user %>
- <!--    <ul class="profile-link">
-      <li><%#= link_to "#{current_user.username}", user_path(current_user) %></li>
-      <li>|</li>
-      <li><%#= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-    </ul> -->
-  <%# end %>
 
   <%= render "distance_form" %>
 </div>
@@ -36,6 +29,10 @@
   <div id="response-box"></div>
   <% if user_signed_in? %>
     <%= render "/users/routes/save_route_form" %>
+  <% else %>
+    <p>Sign in or sign up to save routes</p>
+    <%= link_to "Sign In", new_user_session_path %> |
+    <%= link_to "Sign Up", new_user_registration_path %>
   <% end %>
   <p>Total Distance: <span id="total"></span></p>
 </div>
