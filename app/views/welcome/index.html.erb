@@ -4,25 +4,18 @@
 
   <section class="landing-header">
     <p id="tagline">Run from Routine</p>
-    <p id="subheading">Randomize your run,  jog,  or walk with Loopi</p>
-
-  <%= link_to "About Us", '/about_us' %>
-
-  <% if current_user %>
-    <ul class="profile-link">
-      <li><%= link_to "#{current_user.username}", user_path(current_user) %></li>
-      <li>|</li>
-      <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-    </ul>
-  <% end %>
-
-  <%= image_tag "logo.png", :id => "logo" %>
-
-  <section class="landing-header">
-    <h2 id="tagline">Run from Routine</h2>
-    <h3 id="subheading">With loopi, you'll never have to run the same route again.</h3>
-
+    <p id="subheading">With loopi, you'll never have to run the same route again</p>
   </section>
+
+  <%#= link_to "About Us", '/about_us' %>
+
+  <%# if current_user %>
+ <!--    <ul class="profile-link">
+      <li><%#= link_to "#{current_user.username}", user_path(current_user) %></li>
+      <li>|</li>
+      <li><%#= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+    </ul> -->
+  <%# end %>
 
   <%= render "distance_form" %>
 </div>
@@ -30,7 +23,6 @@
 <div class="section" id="map"></div>
   <%= image_tag "nav_up.png", :class => "up" %>
   <%= image_tag "direction.png", :class => "down" %>
-
 
 <div class="section" id="directions">
   <br><br><br>
