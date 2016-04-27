@@ -1,0 +1,5 @@
+$( document ).ready(function() {
+  setTimeout(function(){
+    $(".odometer").html(<%= Waypoint.count %>);
+  }, 1000);
+});
