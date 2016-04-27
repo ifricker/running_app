@@ -1,0 +1,66 @@
+// .profile-link {
+//     bullets: none;
+//     margin: 0;
+//     padding: 0;
+//     padding-left: 10px;
+// }
+
+// .profile-link li {
+//     display: inline-block;
+//     padding: 10px;
+// }
+
+// .profile-link a {
+//     font-weight: 100;
+//     color: white;
+//     font-family: 'Roboto', sans-serif;
+//     text-decoration: none;
+// }
+
+// .profile-link a:hover {
+//     text-decoration: underline;
+// }
+
+// table {
+//     border-collapse: collapse;
+// }
+
+// th, td {
+//     text-align: left;
+//     padding: 6px;
+// }
+
+// tr:nth-child(even){background-color: #f2f2f2}
+
+// .users-show {
+//   margin: 5%;
+// }
+
+// .save-button {
+//     -webkit-border-radius: $btn-border-radius;
+//     -moz-border-radius: $btn-border-radius;
+//     border-radius: $btn-border-radius;
+//     background: linear-gradient(#F83600, #FE8C00);
+//     border: solid;
+//     border-width: $btn-border-width;
+//     border-color: white;
+//     color: white;
+//     font-weight: 100;
+//     font-size: ($btn-font-size * 0.5);
+//     font-family: 'Roboto', sans-serif;
+//     line-height: $btn-line-height;
+//     padding-bottom: $btn-padding-bottom;
+//     padding-top: 5px;
+//     width: ($btn-width * 0.7);
+//     text-decoration: none;
+//     display: inline-block;
+// }
+
+.save-button:hover{
+  cursor: pointer;
+  background: white;
+  color: #F83600;
+  border-color: #F83600;
+}
+
+

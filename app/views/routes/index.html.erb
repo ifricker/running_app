@@ -1,0 +1,29 @@
+<h1>Listing routes</h1>
+
+<table>
+  <tr>
+    <th>Distance</th>
+    <th>Starting lat</th>
+    <th>Starting lng</th>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @routes.each do |route| %>
+  <tr>
+    <td><%= route.distance %></td>
+    <td><%= route.starting_lat %></td>
+    <td><%= route.starting_lng %></td>
+    <td><%= route.name %></td>
+    <td><%= link_to 'Show', [route.user, route] %></td>
+    <td><%= link_to 'Edit', edit_user_route_path(route.user, route) %></td>
+    <td><%= link_to 'Destroy', [route.user, route], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Route', new_user_route_path(params[:user_id]) %>

@@ -11,3 +11,10 @@
 /log/*
 !/log/.keep
 /tmp
+
+env.vars
+.DS_Store
+**/.DS_Store
+
+.env
+

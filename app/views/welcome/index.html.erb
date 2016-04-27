@@ -1,0 +1,34 @@
+<div class="section" id="landing-content">
+
+  <%= image_tag "logo.svg", :id => "logo" %>
+
+  <section class="landing-header">
+    <p id="tagline">Run from Routine</p>
+    <p id="subheading">With loopi, you'll never have to run the same route again</p>
+  </section>
+
+  <%#= link_to "About Us", '/about_us' %>
+
+  <%# if current_user %>
+ <!--    <ul class="profile-link">
+      <li><%#= link_to "#{current_user.username}", user_path(current_user) %></li>
+      <li>|</li>
+      <li><%#= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+    </ul> -->
+  <%# end %>
+
+  <%= render "distance_form" %>
+</div>
+
+<div class="section" id="map"></div>
+  <%= image_tag "nav_up.png", :class => "up" %>
+  <%= image_tag "direction.png", :class => "down" %>
+
+<div class="section" id="directions">
+  <br><br><br>
+  <div id="response-box"></div>
+  <% if user_signed_in? %>
+    <%= render "/users/routes/save_route_form" %>
+  <% end %>
+  <p>Total Distance: <span id="total"></span></p>
+</div>

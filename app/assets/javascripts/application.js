@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require drum/hammerjs/hammer.min
+//= require drum/drum
 //= require_tree .
