@@ -1,6 +1,28 @@
+.profile-link {
+    bullets: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+}
+
+.profile-link li {
+    display: inline-block;
+    padding: 10px;
+}
+
+.profile-link a {
+    font-weight: 100;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+}
+
+.profile-link a:hover {
+    text-decoration: underline;
+}
+
 table {
     border-collapse: collapse;
-    width: 50%;
 }
 
 th, td {
@@ -23,13 +45,15 @@ tr:nth-child(even){background-color: #f2f2f2}
     border-width: $btn-border-width;
     border-color: white;
     color: white;
+    font-weight: 100;
     font-size: ($btn-font-size * 0.5);
-    font-family: 'Pacifico', cursive;
-    height: ($btn-height * 0.7);
+    font-family: 'Roboto', sans-serif;
     line-height: $btn-line-height;
     padding-bottom: $btn-padding-bottom;
     padding-top: 5px;
     width: ($btn-width * 0.7);
+    text-decoration: none;
+    display: inline-block;
 }
 
 .save-button:hover{
@@ -38,4 +62,5 @@ tr:nth-child(even){background-color: #f2f2f2}
   color: #F83600;
   border-color: #F83600;
 }
+
 
