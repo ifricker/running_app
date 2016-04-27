@@ -142,7 +142,7 @@ function loadScript() {
        }
     })
     .done(function(response){
-      console.log(response)
+      $("#response-box").html(response[0][1])
     })
   })
 }
