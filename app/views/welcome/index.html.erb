@@ -1,4 +1,12 @@
 <div class="section" id="landing-content">
+  <% if current_user %>
+    <ul class="profile-link">
+      <li><%= link_to "#{current_user.username}", user_path(current_user) %></li>
+      <li>|</li>
+      <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+    </ul>
+  <% end %>
+
   <%= image_tag "logo.png", :id => "logo" %>
 
   <section class="landing-header">
@@ -16,9 +24,7 @@
 
   <div class="section" id="directions">
     <br><br><br>
-    <% if user_signed_in? %>
-      <%= render "/users/routes/save_route_form" %>
-    <% end %>
+    <%= render "/users/routes/save_route_form" %>
     <p>Total Distance: <span id="total"></span></p>
   </div>
 
