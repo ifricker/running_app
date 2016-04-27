@@ -1,4 +1,4 @@
-# Loopi
+# Loopi v0.0.2
 [![Build Status](https://travis-ci.org/ifricker/running_app.svg?branch=development)](https://travis-ci.org/ifricker/running_app)
 
 ## Information
@@ -10,4 +10,3 @@ Rails version 4.2.6
 
 ## Running a Test Suite
 Run the command: `bundle exec rspec spec`
-
