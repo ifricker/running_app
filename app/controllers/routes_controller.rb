@@ -24,9 +24,6 @@ class RoutesController < ApplicationController
   def create
     if current_user
       route = Route.find_by(id: params[:route_id])
-      puts "$" * 30
-      puts params
-      puts "$" * 30
       route.distance = params[:total_miles][1..-2]
       start = Waypoint.find_by(id: route.start_id)
       location = Geokit::Geocoders::GoogleGeocoder.geocode("#{start.latitude}, #{start.longitude}")
