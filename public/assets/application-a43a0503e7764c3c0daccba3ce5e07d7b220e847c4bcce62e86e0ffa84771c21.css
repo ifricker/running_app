@@ -1,0 +1,967 @@
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+/* line 1, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/about.sass */
+#odometer {
+  font-size: 100px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* line 6, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/about.sass */
+.odometer-value {
+  color: black;
+}
+
+/* line 10, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/about.sass */
+.about-us-container {
+  background: linear-gradient(#F83600, #FE8C00);
+  opacity: 0.8;
+  height: 100%;
+  width: 100%;
+  color: #FFF;
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+}
+
+/* line 20, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/about.sass */
+.about-title {
+  margin: 0;
+}
+
+/* line 1, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/direction_content.sass */
+#directions {
+  box-sizing: border-box;
+  padding: 2em;
+  text-align: center;
+  overflow: scroll;
+}
+/* line 6, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/direction_content.sass */
+#directions::-webkit-scrollbar {
+  display: none;
+}
+/* line 9, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/direction_content.sass */
+#directions p {
+  color: #333333;
+}
+
+/* main container styles */
+/* line 2, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/drum.scss */
+div.drum-wrapper {
+  position: relative;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 40px;
+}
+
+/* line 12, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/drum.scss */
+div.drum-wrapper .inner {
+  position: relative;
+  overflow: hidden;
+}
+
+/* line 17, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/drum.scss */
+div.drum-wrapper div.container {
+  position: absolute;
+  width: 100%;
+  top: 48px;
+  left: 0px;
+  -webkit-perspective: 1100px;
+  -moz-perspective: 1100px;
+  -o-perspective: 1100px;
+  perspective: 1100px;
+}
+
+/* line 28, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/drum.scss */
+div.drum-wrapper,
+div.drum-wrapper .inner {
+  height: 120px;
+}
+
+/* dail styles for mouse controls */
+/* line 34, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/drum.scss */
+div.drum-wrapper .dial {
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  height: 48px;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: none;
+}
+
+/* actual drum styles */
+/* line 44, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/drum.scss */
+div.drum {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+/* line 56, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/drum.scss */
+div.drum figure {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  line-height: 20px;
+  margin: 0px;
+  padding: 0px 3px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+}
+
+/* line 78, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/drum.scss */
+div.drum-wrapper div.container, div.drum-wrapper figure {
+  height: 25px;
+  line-height: 25px;
+}
+
+/* line 1, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/header.sass */
+.loopi-header {
+  width: 100%;
+}
+
+/* line 4, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/header.sass */
+.logo-in-header {
+  font-family: "Pacifico", sans-serif;
+  font-size: 3em;
+  color: white;
+}
+
+/* line 1, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content {
+  background-color: #F83600;
+  background-image: -webkit-linear-gradient(#F83600, #FE8C00);
+  background-image: linear-gradient(#F83600, #FE8C00);
+  opacity: 0.75;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  color: white;
+}
+/* line 14, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content #logo {
+  max-width: 80px;
+  min-width: 80px;
+  display: block;
+}
+@media (min-width: 830px) {
+  /* line 14, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+  #landing-content #logo {
+    max-width: 120px;
+    min-width: 120px;
+  }
+}
+/* line 22, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content .landing-header {
+  padding: 0 16px;
+  text-align: center;
+}
+/* line 26, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content .landing-header #tagline {
+  font-size: 21px;
+  font-weight: 300;
+  margin: 0;
+}
+@media (min-width: 830px) {
+  /* line 26, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+  #landing-content .landing-header #tagline {
+    font-size: 30px;
+  }
+}
+/* line 33, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content .landing-header #subheading {
+  font-size: 16px;
+  font-weight: 200;
+  margin: 0;
+  padding: 0 16px;
+}
+@media (min-width: 830px) {
+  /* line 33, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+  #landing-content .landing-header #subheading {
+    font-size: 24px;
+  }
+}
+/* line 41, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content #distance_form_desktop {
+  box-sizing: border-box;
+  padding-bottom: 32px;
+  text-align: center;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  width: 50%;
+  height: 60%;
+  font-size: 24px;
+  font-weight: 300;
+}
+@media (max-width: 830px) {
+  /* line 41, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+  #landing-content #distance_form_desktop {
+    display: none;
+  }
+}
+/* line 60, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content #distance_form_desktop #distance-text {
+  width: 60px;
+}
+/* line 63, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content #distance_form_desktop select {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+}
+/* line 68, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content #distance_form {
+  box-sizing: border-box;
+  padding-bottom: 42px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  width: 50%;
+  height: 60%;
+}
+@media (min-width: 830px) {
+  /* line 68, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+  #landing-content #distance_form {
+    display: none;
+  }
+}
+/* line 84, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content #distance_form #distance_form_input {
+  display: flex;
+  justify-content: space-around;
+  font-size: 18px;
+  width: 140px;
+}
+/* line 90, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content .text-input {
+  font-size: 18px;
+  text-align: center;
+  color: white;
+  border: none;
+  background: transparent;
+  cursor: text;
+  border-bottom: 1px dashed white;
+}
+/* line 4, /Users/apprentice/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/bourbon-4.2.7/app/assets/stylesheets/css3/_placeholder.scss */
+#landing-content .text-input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+/* line 4, /Users/apprentice/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/bourbon-4.2.7/app/assets/stylesheets/css3/_placeholder.scss */
+#landing-content .text-input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+/* line 4, /Users/apprentice/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/bourbon-4.2.7/app/assets/stylesheets/css3/_placeholder.scss */
+#landing-content .text-input:-moz-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+/* line 4, /Users/apprentice/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/bourbon-4.2.7/app/assets/stylesheets/css3/_placeholder.scss */
+#landing-content .text-input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+@media (min-width: 830px) {
+  /* line 90, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+  #landing-content .text-input {
+    font-size: 24px;
+    width: 220px;
+  }
+}
+/* line 105, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content .text-input:focus {
+  outline: none;
+}
+/* line 108, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content .loopify {
+  border: 2px solid white;
+  border-radius: 24px;
+  background: transparent;
+  padding: 6px 28px;
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+}
+@media (min-width: 830px) {
+  /* line 108, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+  #landing-content .loopify {
+    font-size: 24px;
+    padding: 6px 32px;
+  }
+}
+/* line 120, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content .loopify:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+/* line 124, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content .loopify:active {
+  border: none;
+  outline: none;
+}
+/* line 128, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/landing_content.sass */
+#landing-content .loopify:focus {
+  border: none;
+  outline: none;
+}
+
+/* line 1, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/main.sass */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* line 11, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/main.sass */
+.section {
+  position: relative;
+  height: 100%;
+}
+
+/* line 1, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/navigation_icon.sass */
+.up {
+  z-index: 5;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  display: none;
+}
+
+/* line 10, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/navigation_icon.sass */
+.down {
+  z-index: 5;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  display: none;
+}
+
+/*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
+/**
+ * 1. Change the default font family in all browsers (opinionated).
+ * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
+ */
+/* line 8, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+/* line 18, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ * 2. Add the correct display in IE.
+ */
+/* line 31, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  /* 1 */
+  display: block;
+}
+
+/**
+ * Add the correct display in IE 9-.
+ */
+/* line 50, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+/* line 61, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+/* line 70, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Add the correct display in IE 10-.
+ * 1. Add the correct display in IE.
+ */
+/* line 79, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+template,
+[hidden] {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+/* line 91, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+a {
+  background-color: transparent;
+}
+
+/**
+ * Remove the outline on focused links when they are also active or hovered
+ * in all browsers (opinionated).
+ */
+/* line 100, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+a:active,
+a:hover {
+  outline-width: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * 1. Remove the bottom border in Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+/* line 113, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */
+}
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+/* line 123, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+b,
+strong {
+  font-weight: inherit;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+/* line 132, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+/* line 141, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+/* line 150, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Add the correct background and color in IE 9-.
+ */
+/* line 159, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+/* line 168, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+/* line 177, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 185, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* line 189, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+/* line 200, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+img {
+  border-style: none;
+}
+
+/**
+ * Hide the overflow in IE.
+ */
+/* line 208, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+/* line 220, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/**
+ * Add the correct margin in IE 8.
+ */
+/* line 232, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+/* line 241, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * Change font properties to `inherit` in all browsers (opinionated).
+ */
+/* line 254, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/**
+ * Restore the font weight unset by the previous rule.
+ */
+/* line 265, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+optgroup {
+  font-weight: bold;
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ * 2. Show the overflow in Edge, Firefox, and IE.
+ */
+/* line 275, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+button,
+input,
+select {
+  /* 2 */
+  overflow: visible;
+}
+
+/**
+ * Remove the margin in Safari.
+ * 1. Remove the margin in Firefox and Safari.
+ */
+/* line 286, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+button,
+input,
+select,
+textarea {
+  /* 1 */
+  margin: 0;
+}
+
+/**
+ * Remove the inheritence of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritence of text transform in Firefox.
+ */
+/* line 298, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Change the cursor in all browsers (opinionated).
+ */
+/* line 307, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  cursor: pointer;
+}
+
+/**
+ * Restore the default cursor to disabled elements unset by the previous rule.
+ */
+/* line 318, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+[disabled] {
+  cursor: default;
+}
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS.
+ */
+/* line 328, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+/* line 339, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+/* line 349, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+button:-moz-focusring,
+input:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Change the border, margin, and padding in all browsers (opinionated).
+ */
+/* line 358, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+/* line 371, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
+}
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+/* line 384, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+/* line 393, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+/* line 403, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * Correct the odd appearance of search inputs in Chrome and Safari.
+ */
+/* line 412, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+[type="search"] {
+  -webkit-appearance: textfield;
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome on OS X and
+ * Safari on OS X.
+ */
+/* line 421, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/normalize.scss */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/* line 1, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+.home-page-links a {
+  color: white;
+  text-decoration: none;
+  padding: 0 3px;
+}
+/* line 5, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+.home-page-links a:hover {
+  font-weight: bold;
+}
+
+/* line 8, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+#response-box {
+  margin: 20px 0 0 0;
+}
+
+/* line 11, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+.edit-show {
+  background: #f9f9f9;
+  width: 100%;
+  height: 100%;
+  padding: 5%;
+}
+
+/* line 17, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+.edit-show a {
+  text-decoration: none;
+  padding: 2px 7px;
+  background-color: transparent;
+  color: #F83600;
+  border: #F83600 2px solid;
+  border-radius: 5px;
+  margin: 0 1px;
+}
+/* line 25, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+.edit-show a:hover {
+  color: #000;
+}
+
+/* line 28, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+.users-show a {
+  text-decoration: none;
+  padding: 2px 7px;
+  background-color: transparent;
+  color: #F83600;
+  border: #F83600 2px solid;
+  border-radius: 5px;
+  margin: 0 1px;
+}
+/* line 36, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+.users-show a:hover {
+  color: #000;
+}
+
+/* line 39, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+.clean {
+  text-decoration: none;
+  padding: 2px 7px;
+  background-color: transparent;
+  color: #F83600;
+  border: #F83600 2px solid;
+  border-radius: 5px;
+  margin: 5px 1px 10px 1px;
+}
+/* line 47, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+.clean:hover {
+  color: #000;
+}
+
+/* line 50, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+.user-page {
+  background: #f9f9f9;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}
+
+/* line 56, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+.users-show {
+  padding: 5%;
+  max-width: 500px;
+}
+
+/* line 60, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+.username {
+  font-size: 2.5em;
+  color: #000;
+}
+
+/* line 64, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+.pacifico-text {
+  font-family: "Pacifico", cursive;
+}
+
+/* line 67, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+.field input {
+  width: 250px;
+  height: 20px;
+  margin: 5px 5px 5px 0;
+  padding: 5px;
+}
+
+/* line 73, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+.loopi-link a {
+  text-decoration: none;
+  color: #F83600;
+  padding: 0 3px;
+}
+/* line 77, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+.loopi-link a:hover {
+  color: #000;
+}
+
+/* line 81, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+#no-borders a {
+  border: none;
+}
+
+/* line 84, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+#no-more-borders a {
+  border: none;
+}
+
+/* line 87, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+.form-container {
+  background: #f9f9f9;
+  height: 100%;
+  width: 100%;
+  padding: 5%;
+}
+
+/* line 93, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+.box-center {
+  text-align: center;
+}
+
+/* line 96, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+#save-route-form {
+  display: inline-block;
+  width: 100%;
+}
+
+/* line 100, /Users/apprentice/Desktop/running_app/app/assets/stylesheets/users.sass */
+#save-button {
+  margin: 10px 0 0 0;
+}
