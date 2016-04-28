@@ -22,7 +22,7 @@
 
 <div class="section" id="map"></div>
   <%= image_tag "nav_up.png", :class => "up" %>
-  <%= image_tag "direction.png", :class => "down" %>
+  <%= image_tag "nav_down.png", :class => "down" %>
 
 <div class="section" id="directions">
   <br><br><br>
@@ -30,9 +30,7 @@
   <% if user_signed_in? %>
     <%= render "/users/routes/save_route_form" %>
   <% else %>
-    <p>Sign in or sign up to save routes</p>
-    <%= link_to "Sign In", new_user_session_path %> |
-    <%= link_to "Sign Up", new_user_registration_path %>
+    <p><%= link_to "Sign In", new_user_session_path, class: "clean" %> or <%= link_to "Sign Up", new_user_registration_path, class: "clean" %> to save routes</p>
   <% end %>
   <p>Total Distance: <span id="total"></span></p>
 </div>

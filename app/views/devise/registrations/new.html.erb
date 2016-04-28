@@ -1,48 +1,37 @@
-<div>
-  <%= link_to "Loopi", root_path %> |
-  <%= link_to "Sign In", new_user_session_path %>
-</div>
+<div class="form-container">
+  <%= render "header" %>
+
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true %>
+    <%= f.text_field :first_name, autofocus: true, placeholder: "first name" %>
   </div>
 
   <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, placeholder: "last name" %>
   </div>
 
   <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
+    <%= f.text_field :username, placeholder: "username" %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
+    <%= f.email_field :email, placeholder: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", placeholder: "password (6 characters minimum)" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "password confirmation" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up", class: "submit_button sign-up-padding" %>
+    <%= f.submit "Sign up", class: "submit_button sign-up-padding clean" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+</div>

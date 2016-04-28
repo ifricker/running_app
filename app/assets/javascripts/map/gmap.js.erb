@@ -170,5 +170,6 @@ function computeTotalDistance(result) {
     total += myroute.legs[i].distance.value;
   }
   total = total / 1609.34;
-  document.getElementById('total').innerHTML = total.toFixed(1) + ' mi';
+  km = total * 1.60934
+  document.getElementById('total').innerHTML = total.toFixed(1) + ' mi ( ' + km.toFixed(1) + ' km )';
 }

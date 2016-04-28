@@ -1,24 +1,26 @@
-<div class="users-show">
-  <div id="no-borders">
-    <%= link_to "Loopi", root_path, class: 'pacifico-text'%>
-    <% if current_user == @user %>
-     <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-    <% end %>
-  </div>
-    <h2><span class="username pacifico-text"><%= @user.username %> </span> ... you have <%= @user.routes.count %> <span class="pacifico-text">loopi</span> routes!</h2>
-
-
-    <% if @user.routes.count > 0 %>
-      <% @user.routes.each do |route| %>
-        <hr>
-        <p><%= route.name %> ( <%= route.distance %> )</p>
-        <p><a href="<%= route.map_url %>">View map</a>
-        <% if current_user == @user %>
-          <a href="/users/<%= current_user.id %>/routes/<%= route.id %>/edit">Edit Route Name</a>
-          <%= link_to 'Delete', user_route_path(current_user, route), method: :delete %></p>
-        <% end %>
+<div class="user-page">
+  <div class="users-show">
+    <div id="no-borders">
+      <%= link_to "Loopi", root_path, class: 'pacifico-text'%>
+      <% if current_user == @user %>
+       <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
       <% end %>
-      <% else %>
-      <p>Start saving your loopi routes!</p>
-    <% end %>
+    </div>
+      <h2><span class="username"><%= @user.username %> </span> ... you have <%= @user.routes.count %> <span class="pacifico-text">loopi</span> routes!</h2>
+
+
+      <% if @user.routes.count > 0 %>
+        <% @user.routes.each do |route| %>
+          <hr>
+          <p><%= route.name %> ( <%= route.distance %> )</p>
+          <p><a href="<%= route.map_url %>">View map</a>
+          <% if current_user == @user %>
+            <a href="/users/<%= current_user.id %>/routes/<%= route.id %>/edit">Edit Route Name</a>
+            <%= link_to 'Delete', user_route_path(current_user, route), method: :delete %></p>
+          <% end %>
+        <% end %>
+        <% else %>
+        <p>Start saving your loopi routes!</p>
+      <% end %>
+  </div>
 </div>
