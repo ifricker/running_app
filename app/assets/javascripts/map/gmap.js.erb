@@ -142,7 +142,7 @@ function loadScript() {
        }
     })
     .done(function(response){
-      $("#response-box").html(response[0][1])
+      $("#response-box").html(response[response.length - 1][1])
     })
   })
 }
@@ -170,5 +170,6 @@ function computeTotalDistance(result) {
     total += myroute.legs[i].distance.value;
   }
   total = total / 1609.34;
-  document.getElementById('total').innerHTML = total.toFixed(1) + ' mi';
+  km = total * 1.60934
+  document.getElementById('total').innerHTML = total.toFixed(1) + ' mi ( ' + km.toFixed(1) + ' km )';
 }
