@@ -1,7 +1,7 @@
 <div class="user-page">
   <div class="users-show">
     <div id="no-borders">
-      <%= link_to "Loopi", root_path, class: 'pacifico-text'%>
+      <%= link_to "Loopi", root_path, class: 'pacifico-text',  data: { no_turbolink: true } %>
       <% if current_user == @user %>
        <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
       <% end %>

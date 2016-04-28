@@ -1,6 +1,4 @@
 $(function(){
-  $('.up').hide()
-  $('.down').hide()
 
   var top = 0;
   $('.loopify').on('click', function(){
