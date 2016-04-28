@@ -1,4 +1,4 @@
-<form action="/anon_routes" method="post" id="distance_form">
+<form action="/anon_routes" method="post" id="distance_form" class="form-submit">
   <div id="distance_form_input">
     <select name="input_miles">
       <option value="1">01</option>
@@ -81,27 +81,12 @@
     </select>
   </div>
   <div>
-    <input id="start_location" type="text" name="start_location" placeholder="use my current location"></input>
+    <input class="text-input" type="text" name="start_location" placeholder="use my current location"></input>
   </div>
   <div>
-    <input class="btn loopify" name="commit" type="submit" value="Go">
+    <input class="btn loopify" name="commit" type="submit" value="Go"></input>
   </div>
   <script>
     $("select").drum();
   </script>
-  <!-- <section id="distance_form_input">
-    <label for="input_miles">Distance</label>
-    <input type="text" name="input_miles" value="3.1"></input>
-    <select id="distance-units" name="units">
-      <option value="miles">miles</option>
-      <option value="km">km</option>
-    </select>
-
-    <section id="location-input">
-      <label for="start_location">Location</label>
-      <input id="start_location" type="text" name="start_location" placeholder="use my current location"></input>
-    </section>
-  </section>
-
-  <input class="btn loopify" name="commit" type="submit" value="Loopify"> -->
 </form>
