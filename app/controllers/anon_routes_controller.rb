@@ -3,7 +3,10 @@ class AnonRoutesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
-    params[:input_miles] = params[:input_miles] + "." + params[:input_miles_decimal]
+    if params[:input_miles_decimal]
+      params[:input_miles] = params[:input_miles] + "." + params[:input_miles_decimal]
+    end
+
     if params[:waypoint]
       lat = params[:waypoint][:lat]
       lng = params[:waypoint][:lng]

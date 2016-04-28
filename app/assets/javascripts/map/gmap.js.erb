@@ -39,7 +39,7 @@ function initMap() {
         panel: document.getElementById('directions')
       });
 
-      $('#distance_form').on('submit', function(event) {
+      $('.form-submit').on('submit', function(event) {
         event.preventDefault();
         var data = $(this).serialize()
         start = [];
@@ -77,7 +77,7 @@ function initMap() {
         panel: document.getElementById('directions')
       });
 
-        $('#distance_form').on('submit', function(event) {
+        $('.form-submit').on('submit', function(event) {
         event.preventDefault();
         var pos = {
           lat: start.latitude,

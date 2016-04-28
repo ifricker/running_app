@@ -9,12 +9,15 @@
   align-items: center
   -webkit-justify-content: space-around
   justify-content: space-around
+  color: rgb(255, 255, 255)
 
   #logo
-    width: 22%
     max-width: 80px
     min-width: 80px
     display: block
+    @media (min-width: 830px)
+      max-width: 120px
+      min-width: 120px
 
   .landing-header
     padding: 0 16px
@@ -24,11 +27,41 @@
       font-size: 21px
       font-weight: 300
       margin: 0
+      @media (min-width: 830px)
+        font-size: 30px
 
     #subheading
       font-size: 16px
       font-weight: 200
       margin: 0
+      padding: 0 16px
+      @media (min-width: 830px)
+        font-size: 24px
+
+  #distance_form_desktop
+    text-align: center
+    display: -webkit-flex
+    display: flex
+    -webkit-flex-direction: column
+    flex-direction: column
+    -webkit-align-items: center
+    align-items: center
+    -webkit-justify-content: space-around
+    justify-content: space-around
+    width: 50%
+    height: 60%
+    font-size: 24px
+    font-weight: 300
+    @media (max-width: 830px)
+      display: none
+
+    #distance-text
+      width: 60px
+
+    select
+      background: transparent
+      color: rgb(255, 255, 255)
+      border: 1px solid rgb(255, 255, 255)
 
   #distance_form
     display: -webkit-flex
@@ -41,6 +74,8 @@
     justify-content: space-around
     width: 50%
     height: 60%
+    @media (min-width: 830px)
+      display: none
 
     #distance_form_input
       display: flex
@@ -48,62 +83,23 @@
       font-size: 18px
       width: 140px
 
-    #start_location
-      font-size: 18px
-      color: rgb(255, 255, 255)
-      display:inline-block
-      border: none
-      background: transparent
-      cursor: text
-      border-bottom: 1px dashed rgb(255, 255, 255)
-      @include placeholder
-        color: rgba(255, 255, 255, 0.5)
+  .text-input
+    font-size: 18px
+    text-align: center
+    color: rgb(255, 255, 255)
+    display:inline-block
+    border: none
+    background: transparent
+    cursor: text
+    border-bottom: 1px dashed rgb(255, 255, 255)
+    @include placeholder
+      color: rgba(255, 255, 255, 0.5)
+    @media (min-width: 830px)
+      font-size: 24px
+      width: 220px
 
-      &:focus
-        outline: none
-    // margin-left: auto
-    // margin-right: auto
-
-    // #distance_form_input
-    //   margin: 0 auto
-    //   width: 350px
-    //   background: rgba(255, 255, 255, .2)
-    //   padding: 20px 35px 25px 40px
-    //   border-radius: 15px
-
-    //   label
-    //     color: #FFFFFF
-    //     margin-top: 6px
-
-    //   input
-    //     border-radius: 5px
-    //     background: #fff
-    //     border: 1px solid #c6c7cc
-    //     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1)
-    //     color: #636466
-    //     padding: 6px
-    //     padding-left: 10px
-    //     margin-top: 6px
-    //     font-size: 14px
-
-    //   #distance-units
-    //     border-radius: 5px
-    //     background: #fff
-    //     border: 1px solid #c6c7cc
-    //     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1)
-    //     color: #636466
-    //     padding: 6px
-    //     padding-left: 10px
-    //     margin-top: 6px
-    //     font-size: 14px
-    //     width: 100px
-    //     height: 31px
-
-    //   #location-input
-    //     margin-top: 10px
-
-    //   #start_location
-    //     width: 252px
+    &:focus
+      outline: none
 
   .loopify
     border: 2px solid rgb(255, 255, 255)
@@ -111,8 +107,11 @@
     background: transparent
     padding: 6px 28px
     color: rgb(255, 255, 255)
-    font-size: 18px
-    font-weight: 500
+    font-size: 20px
+    font-weight: 400
+    @media (min-width: 830px)
+      font-size: 24px
+      padding: 6px 32px
 
     &:hover
       cursor: pointer
@@ -125,28 +124,3 @@
     &:focus
       border: none
       outline: none
-
-.up
-  z-index: 5
-  margin: 0 auto
-  position: absolute
-  top: 10px
-  left: 0
-  right: 0
-
-.down
-  z-index: 5
-  margin: 0 auto
-  position: absolute
-  bottom: 10px
-  left: 0
-  right: 0
-
-#directions
-  box-sizing: border-box
-  padding: 2em
-  text-align: center
-  overflow: scroll
-  margin: 0 auto
-
-
