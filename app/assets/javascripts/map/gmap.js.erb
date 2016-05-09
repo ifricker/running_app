@@ -47,7 +47,7 @@ function initMap() {
         total = 0;
         $.post({
             url: "/anon_routes?waypoint[lat]="+pos.lat + "&waypoint[lng]="+pos.lng + "&" + data,
-            contentType: 'application/json; charset=utf-8',
+            contentType: 'application/json',
             dataType: 'json'
             }).done(function(data){
             route_id = data[0].route_id
@@ -90,7 +90,7 @@ function initMap() {
         total = 0;
         $.post({
             url: "/anon_routes?" + data,
-            contentType: 'application/json; charset=utf-8',
+            contentType: 'application/json',
             dataType: 'json'
             }).done(function(data){
             route_id = data[0].route_id
