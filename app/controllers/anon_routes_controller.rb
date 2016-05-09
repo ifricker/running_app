@@ -25,6 +25,7 @@ class AnonRoutesController < ApplicationController
     new_route.save
 
     respond_to do |format|
+      puts "we are getting in the respond to --------------------"
       format.json { render :json => new_route.waypoints }
     end
   end
