@@ -11,8 +11,10 @@ By using Ruby on Rails and PostgreSQL, Loopi allows users to create a profile an
 The first MVP of Loopi was completed in one week.
 
 ## Configuration / Set-up
-Ruby version 2.2.2
-Rails version 4.2.6
+- Ruby version 2.2.2
+- Rails version 4.2.6
+
+Once you have these installed, run a bundle install and migration. You can now access the application.
 
 ## Deployment
 Loopi is deployed on Heroku.
