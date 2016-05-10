@@ -26,3 +26,13 @@ Run the command: `bundle exec rspec spec`
 
 ## Git Workflow
 Loopi uses the [git flow workflow](https://danielkummer.github.io/git-flow-cheatsheet/ "git-flow").
+
+## Make a Route
+Users input the desired length of the run and can input a start/end location (Loopi defaults to the current location).
+![Loopi](/app/assets/images/loopi_home.png "Home page")
+
+Loopi generates and displays the route.
+![Loopi Map](/app/assets/images/loopi_map.png "Map of route")
+
+Users can view total length of route and turn-by-turn walking directions.
+![Loopi Directions](/app/assets/images/loopi_directions.png "Route directions")
