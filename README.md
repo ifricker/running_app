@@ -36,3 +36,7 @@ Loopi generates and displays the route.
 
 Users can view total length of route and turn-by-turn walking directions.
 ![Loopi Directions](/app/assets/images/loopi_directions.png "Route directions")
+
+## PostgreSQL Schema
+![Schema](/app/assets/images/schema.png "schema")
+
