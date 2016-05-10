@@ -23,3 +23,6 @@ Loopi is deployed on Heroku.
 
 ## Running a Test Suite
 Run the command: `bundle exec rspec spec`
+
+## Git Workflow
+Loopi uses the [git flow workflow](https://danielkummer.github.io/git-flow-cheatsheet/ "git-flow").
