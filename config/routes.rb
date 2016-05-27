@@ -11,7 +11,7 @@
   resources :waypoint, only: :create
 
 
-  post 'anon_routes', to: 'anon_routes#create'
+  post 'anon_routes', to: 'anon_routes#create', defaults: { format: 'json' }
 
 
   devise_scope :user do
